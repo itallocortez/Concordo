@@ -31,6 +31,25 @@ int Comando::getNumeroArgumentos(void) {
   return this->numeroArgumentos;
 }
 
+bool Comando::existe() {
+  std::unordered_set<std::string> strings = {
+    "quit",
+    "create-user",
+    "login",
+    "disconnect",
+    "create-server",
+    "set-server-desc",
+    "set-server-invite-code",
+    "list-servers",
+    "remove-server", 
+    "enter-server" , 
+    "leave-server", 
+    "list-participants"
+  };
+
+  return strings.count(this->comando) > 0;
+}
+
 void Comando::ler(void) 
 {
   std::string entrada; // String que armazena a entrada do usuário

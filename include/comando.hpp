@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <unordered_set>
 
 #include "usuario.hpp"
 #include "servidor.hpp"
@@ -41,6 +42,8 @@ class Comando {
     std::string getArgumento(int i);
 
     int getNumeroArgumentos(void);
+
+    bool existe(void);
 
    /**
     * @brief Lê o comando digitado pelo usuário.
