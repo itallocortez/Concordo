@@ -10,7 +10,7 @@
  Norte (UFRN).
 
 ## Documentação
- A documentação do projeto foi feita usando o Doxygen. Você pode acessá-la na [página](https://itallocortez.github.io/Concordo) da documentação.
+ A documentação do projeto foi feita usando o Doxygen. Você pode acessá-la na [página](https://itallocortez.github.io/Concordo) de documentação.
 
 ## Instalação
 
@@ -21,30 +21,44 @@
 - Doxygen (opcional)
 
 ### Compilação
-Para começar, clone o projeto usando os seguintes comandos:
+Para começar, clone o projeto usando o seguinte comando:
 ``` 
 git clone https://github.com/itallocortez/Concordo.git
-cd ./concordo
+```
+
+Então, abra o diretório do projeto:
+```
+cd ./Concordo
 ```
 
 Agora crie uma pasta onde o programa será compilado e entre nela:
 ```
-mkdir build
-cd build
+mkdir build && cd ./build
 ```
 
-O projeto foi feito usando CMake, basta usar o comando para montar um Makefile:
+Como o projeto usa CMake, basta usar esse comando para gerar um Makefile na pasta:
 ```
 cmake ../CMakeLists.txt
 ```
 
-Por fim, monte o Makefile usando make:
+Por fim, compile o programa usando o Makefile:
 ```
 make
 ```
 
-## Uso
-Após compilar o programa, basta usar o seguinte comando:
+## Execução
+Após compilar o programa, basta usar o seguinte comando para executá-lo:
 ```
 ./concordo
 ```
+
+## Interface do Usuário
+(Em construção)
+
+## Limitações
+### Precisa melhorar
+ - Tenho certeza que existe uma forma melhor de armazenar os comandos sem ter que usar uma sequencia de ifs.
+ - Pode existir uma forma melhor para verificar se o comando existe ou não.
+
+## Autor
+- Itallo Muriel Moreira Cortez
