@@ -1,0 +1,48 @@
+create-user italloucortez@gmail.com 12345
+create-user italloucortez@gmail.com 12345 Itallo Muriel Moreira Cortez
+create-user italloucortez@gmail.com 12345 Itallo Muriel Moreira Cortez
+create-user franciscogabriel@gmail.com 54321 Francisco Gabriel Da Costa Freire
+login italloucortez@gmail.com
+login italloucortez@gmail.com 99999
+login italloucortez@gmail.com 12345
+login italloucortez@gmail.com 12345
+disconnect
+disconnect
+create-server
+create-server minha-casa
+login italloucortez@gmail.com 12345
+create-server minha-casa
+create-server minha-casa
+set-server-desc
+set-server-desc minha-casaaa "Este servidor serve como minha casa, sempre estarei nele"
+set-server-desc minha-casa "Este servidor serve como minha casa, sempre estarei nele"
+disconnect
+login franciscogabriel@gmail.com 54321
+set-server-desc minha-casa "Este servidor é horrível."
+set-server-invite-code
+set-server-invite-code minha-casa 2233
+disconnect
+login italloucortez@gmail.com 12345
+set-server-invite-code minha-casa 2424
+set-server-invite-code minha-casa
+list-servers
+disconnect
+login franciscogabriel@gmail.com 54321
+remove-server
+remove-server minha-casa
+disconnect
+login italloucortez@gmail.com 12345
+remove-server minha-casa
+remove-server minha-casa
+enter-server
+enter-server minha-casa
+create-server minha-casa
+set-server-invite-code minha-casa 2233
+disconnect
+login franciscogabriel@gmail.com 54321
+enter-server minha-casa
+enter-server minha-casa 2233
+leave-server
+enter-server minha-casa
+list-participants
+quit
