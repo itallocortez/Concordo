@@ -1,5 +1,13 @@
 #include "comando.hpp"
 
+/**
+ * @file comando.cpp
+ *
+ * @brief Este arquivo implementa as funções da classe Comando.
+ */
+
+using namespace std;
+
 Comando::Comando()
 {
   
@@ -19,19 +27,23 @@ std::vector<std::string> Comando::splitString(std::string str, char delimiter)
     return substrings; // Retorna o vetor de substrings resultante
 }
 
-std::string Comando::getComando(void) {
+std::string Comando::getComando(void) 
+{
   return this->comando;
 }
 
-std::string Comando::getArgumento(int i) {
+std::string Comando::getArgumento(int i) 
+{
   return this->argumentos[i];
 }
 
-int Comando::getNumeroArgumentos(void) {
+int Comando::getNumeroArgumentos(void) 
+{
   return this->numeroArgumentos;
 }
 
-bool Comando::existe() {
+bool Comando::existe() 
+{
   std::unordered_set<std::string> strings = {
     "quit",
     "create-user",

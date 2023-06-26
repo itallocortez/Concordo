@@ -1,6 +1,14 @@
+#include <string>
+
 #include "usuario.hpp"
 
-#include <string>
+/**
+ * @file usuario.cpp
+ *
+ * @brief Este arquivo implementa as funções da classe Usuario.
+ */
+
+using namespace std;
 
 Usuario::Usuario(int id, string email, string senha, string nome)
 {
@@ -15,7 +23,8 @@ int Usuario::getId(void)
   return this->id;
 }
 
-string Usuario::getNome(void) {
+string Usuario::getNome(void) 
+{
   return this->nome;
 }
 

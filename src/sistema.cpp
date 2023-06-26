@@ -1,8 +1,19 @@
 #include "sistema.hpp"
 
+/**
+ * @file sistema.cpp
+ *
+ * @brief Este arquivo implementa as funções da classe Sistema.
+ */
+
 using namespace std;
 
-Usuario* Sistema::usuarioPeloId(int id) {
+Sistema::Sistema(){
+  
+}
+
+Usuario* Sistema::usuarioPeloId(int id) 
+{
   // Verifica cada usuário no <vector> de usuários
   for (Usuario *usuario : usuarios) {
     // Se encontrar um com ID informado
@@ -15,7 +26,8 @@ Usuario* Sistema::usuarioPeloId(int id) {
   return nullptr;
 }
 
-Usuario* Sistema::usuarioPeloEmail(string email) {
+Usuario* Sistema::usuarioPeloEmail(string email) 
+{
   // Verifica cada usuário no <vector> de usuários
   for (Usuario *usuario : usuarios) {
     // Se encontrar um com ID informado
@@ -28,7 +40,8 @@ Usuario* Sistema::usuarioPeloEmail(string email) {
   return nullptr;
 }
 
-int Sistema::novoIdUsuario(void) {
+int Sistema::novoIdUsuario(void) 
+{
   int maiorId = 0;
     
   for (Usuario *usuario : usuarios) {
@@ -43,7 +56,8 @@ int Sistema::novoIdUsuario(void) {
   return maiorId + 1;
 }
 
-Servidor* Sistema::servidorPeloNome(string nome) {
+Servidor* Sistema::servidorPeloNome(string nome) 
+{
   // Verifica cada usuário no <vector> de usuários
   for (Servidor *servidor : servidores) {
     // Se encontrar um com ID informado
@@ -56,19 +70,18 @@ Servidor* Sistema::servidorPeloNome(string nome) {
   return nullptr;
 }
 
-Sistema::Sistema() {
-  
-}
-
-bool Sistema::fechar(void) {
+bool Sistema::fechar(void) 
+{
   return precisaFechar;
 }
 
-void Sistema::lerComando(void) {
+void Sistema::lerComando(void) 
+{
   comandoAtual.ler();
 }
 
-void Sistema::executarComando(void) {
+void Sistema::executarComando(void) 
+{
   // Antes de tudo, verifica se o comando digitado existe
   if(comandoAtual.existe()) {
     // Se o comando existir, verifica qual foi e executa as operações.

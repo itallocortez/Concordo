@@ -38,7 +38,7 @@ mkdir build && cd ./build
 
 Como o projeto usa CMake, basta usar esse comando para gerar um Makefile na pasta:
 ```
-cmake ../CMakeLists.txt
+cmake ../CMakeLists.txt -B ./
 ```
 
 Por fim, compile o programa usando o Makefile:

@@ -1,23 +1,38 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
-using namespace std;
-
 #include <string>
 
 /**
- * @brief Classe que armazena as informações de um usuário.
+ * @file usuario.hpp
+ *
+ * @brief Este arquivo contém as declarações da classe Usuario.
+ */
+
+/**
+ * @brief Classe que armazena e gerencia as informações de um usuário.
  * 
- * A classe Usuario armazena as informações básicas de um usuário.
+ * A classe Usuario armazena e gerencia as informações básicas de um Usuário, incluindo o seu ID,
+ * nome, e-mail e senha.
  */
 class Usuario {
   private:
     int id; /**< ID do usuário. */
-    string nome; /**< Nome do usuário. */
-    string email; /**< E-mail do usuário. */
-    string senha; /**< Senha do usuário. */
+    std::string nome; /**< Nome do usuário. */
+    std::string email; /**< E-mail do usuário. */
+    std::string senha; /**< Senha do usuário. */
   public:
-    Usuario(int id, string nome, string email, string senha);
+    /**
+    * @brief Construtor da classe Usuario.
+    * 
+    * Cria um objeto Usuario com o ID, nome, email e senha especificados.
+    *
+    * @param id O ID do usuário.
+    * @param nome O nome do usuário.
+    * @param email O e-mail do usuário.
+    * @param senha A senha do usuário.
+    */
+    Usuario(int id, std::string nome, std::string email, std::string senha);
 
     /**
     * @brief Retorna o ID do usuário.
@@ -28,7 +43,7 @@ class Usuario {
     */
     int getId(void);
 
-    string getNome(void);
+    std::string getNome(void);
 
     /**
     * @brief Retorna o E-mail do usuário.
@@ -37,7 +52,7 @@ class Usuario {
     *
     * @return O E-mail do usuário.
     */
-    string getEmail(void);
+    std::string getEmail(void);
 
     /**
     * @brief Retorna a Senha do usuário.
@@ -46,7 +61,7 @@ class Usuario {
     *
     * @return A Senha do usuário.
     */
-    string getSenha(void);
+    std::string getSenha(void);
 };
 
 #endif

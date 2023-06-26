@@ -10,20 +10,28 @@
 #include "usuario.hpp"
 #include "servidor.hpp"
 
-using namespace std;
+/**
+ * @file comando.hpp
+ *
+ * @brief Este arquivo contém as declarações da classe Comando.
+ */
 
 /**
  * @brief Classe que armazena as informações de um comando.
  * 
- * A classe Comando armazena as informações básicas de um comando, 
-   além de permitir a leitura e execução do comando.
+ * A classe Comando armazena as informações básicas de um comando e fornece métodos para ler e executar comandos.
  */
 class Comando {
   private:
-    string comando; /**< Primeiro argumento da linha de comando. Exemplo: create-user, quit, login */
+    std::string comando; /**< Primeiro argumento da linha de comando. Exemplo: create-user, quit, login */
     std::vector<std::string> argumentos; /**< Os outros argumentos da linha de comando. */
     int numeroArgumentos; /**< Número de argumentos (tirando o primeiro argumento da linha de comando) */
   public:
+    /**
+     * @brief Construtor padrão da classe Comando.
+     * 
+     * Inicializa um objeto Comando com valores padrão.
+     */
     Comando();
 
     /**
@@ -37,12 +45,33 @@ class Comando {
      */
     std::vector<std::string> splitString(std::string str, char delimiter);
 
+     /**
+     * @brief Retorna o comando. (Primeiro argumento na linha de comando)
+     *
+     * @return O comando como uma string.
+     */
     std::string getComando(void);
 
+    /**
+     * @brief Retorna o argumento na posição especificada (excluindo o comando).
+     *
+     * @param i A posição do argumento a ser retornado.
+     * @return O argumento na posição especificada como uma string.
+     */
     std::string getArgumento(int i);
 
+    /**
+     * @brief Retorna o número de argumentos (excluindo o comando).
+     *
+     * @return O número de argumentos.
+     */
     int getNumeroArgumentos(void);
 
+    /**
+     * @brief Verifica se o comando existe.
+     *
+     * @return True se o comando existe e False se o comando não existe.
+     */
     bool existe(void);
 
    /**
