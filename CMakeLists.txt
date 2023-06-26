@@ -21,7 +21,7 @@ add_executable( concordo
                 src/mensagem.cpp
                 src/canal.cpp
                 src/canaltexto.cpp
-                stc/canalvoz.cpp
+                src/canalvoz.cpp
                 src/servidor.cpp
                 src/sistema.cpp
                 src/comando.cpp )
