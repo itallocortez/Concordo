@@ -16,7 +16,7 @@
 
 ### Requisitos
 - Compilador C++
-- CMake (3.24.3 ou superior)
+- CMake
 - Git (opcional)
 - Doxygen (opcional)
 

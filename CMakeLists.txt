@@ -1,5 +1,5 @@
 # Versão mínima do CMake
-cmake_minimum_required(VERSION 3.24.3)
+cmake_minimum_required(VERSION 3.5)
 
 # Informações básicas do projeto.
 project(Concordo
