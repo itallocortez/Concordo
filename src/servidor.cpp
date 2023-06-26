@@ -6,6 +6,8 @@
  * @brief Este arquivo implementa as funções da classe Servidor.
  */
 
+using namespace std;
+
 Servidor::Servidor(int usuarioDonoId, string nome) 
 {
   this->usuarioDonoId = usuarioDonoId;
