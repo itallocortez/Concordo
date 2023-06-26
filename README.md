@@ -52,8 +52,22 @@ Após compilar o programa, basta usar o seguinte comando para executá-lo:
 ./concordo
 ```
 
-## Interface do Usuário
-(Em construção)
+## Comandos
+O programa é operado através de comandos executados no terminal.
+
+![Mostrando os comandos do programa](./assets/usando_comandos.gif)
+
+Esses comandos podem ser usados juntos com argumentos para realizar diversas ações. 
+Por exemplo, o comando `login <e-mail> <senha>` é utilizado para fazer o login no sistema, substituindo `<e-mail>` pelo seu endereço de e-mail e `<senha>` pela sua senha.
+O que resulta no comando `login itallocortez@gmail.com 12345`
+
+### Lista de Comandos
+A seguir, estão listados todos os comandos disponíveis para interagir com o sistema:
+
+- `login <e-mail> <senha>`: Efetua o login no sistema.
+- `<comando1> <argumento1> <argumento2>`: Descrição do comando 1.
+- `<comando2> <argumento>`: Descrição do comando 2.
+- `<comando3>`: Descrição do comando 3.
 
 ## Limitações
 ### Precisa melhorar
