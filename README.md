@@ -64,11 +64,103 @@ O que resulta no comando `login itallocortez@gmail.com 12345`
 ### Lista de Comandos
 A seguir, estão listados todos os comandos disponíveis para interagir com o sistema:
 
-- `login <e-mail> <senha>`: Efetua o login no sistema.
-- `<comando1> <argumento1> <argumento2>`: Descrição do comando 1.
-- `<comando2> <argumento>`: Descrição do comando 2.
-- `<comando3>`: Descrição do comando 3.
+- #### `quit`
+  Fecha o programa.
+  - Pode ser utilizado a qualquer momento.
+  
+- #### `create-user <email> <senha> <nome>`
+  Cadastra um novo usuário no sistema. É necessário informar o e-mail, a senha e o nome do usuário.
+  - A senha não pode conter espaços.
+  - O nome do usuário pode conter espaços.
 
+  Exemplo de uso:
+  ```
+  create-user itallocortez@gmail.com 12345 Itallo Cortez
+  ```
+  
+- #### `login <e-mail> <senha>`
+  Efetua o login de um usuário cadastrado. É necessário informar o e-mail e a senha do usuário.
+
+  Exemplo de uso:
+  ```
+  login itallocortez@gmail.com 12345
+  ```
+  
+- #### `disconnect`
+  Desconecta da conta atual.
+  - Precisa estar logado.
+
+- #### `create-server <nome>`
+  Cria um servidor com o nome informado.
+  - Precisa estar logado para utilizar.
+  - O usuário atual será o dono do servidor.
+  - O nome do servidor não pode conter espaços.
+
+  Exemplo de uso:
+  ```
+  create-server jogos
+  ```
+  
+- #### `set-server-desc <nome> "<descrição>"`
+  Altera a descrição de um servidor especifico. É necessário informar o nome do servidor e a nova descrição.
+  - Precisa estar logado para utilizar.
+  - Somente o dono do servidor pode alterar sua descrição.
+  - A descrição pode estar entre aspas se quiser.
+
+  Exemplo de uso:
+  ```
+  set-server-desc jogos "Servidor de Jogos"
+  ```
+  
+- #### `set-server-invite-code <nome> <código>`
+  Altera o código de convite um servidor especifico. É necessário informar o nome do servidor e a novo código.
+  - Precisa estar logado para utilizar.
+  - Somente o dono do servidor pode alterar seu código.
+  - Pode ser usado sem o argumento <código> para remover o código.
+
+  Exemplo de uso:
+  ```
+  set-server-invite-code jogos 4567
+  set-server-invite-code jogos
+  ```
+  
+- #### `list-servers`
+  Imprime o nome de todos os servidores cadastrados no sistema.
+  - Precisa estar logado para utilizar.
+
+- #### `remove-server <nome>`
+  Remove um servidor especifico do sistema. É necessário informar o nome do servidor.
+  - Precisa estar logado para utilizar.
+  - Somente o dono do servidor pode removê-lo.
+
+  Exemplo de uso:
+  ```
+  remove-server jogos
+  ```
+  
+- #### `enter-server <nome> <código>`
+  Entra em um servidor. É necessário informar o nome do servidor.
+  - Precisa estar logado para utilizar.
+  - Caso o servidor exija um código de convite, será necessário informá-lo.
+  - O dono do servidor nunca precisa informar o código de convite.
+  - Se o usuário já entrou no servidor antes, o código de convite não é necessário.
+
+  Exemplo de uso:
+  ```
+  enter-server jogos
+  enter-server jogos 4567
+  ```
+  
+- #### `leave-server`
+  Sai do servidor atual.
+  - Precisa estar logado para utilizar.
+  - Precisa estar dentro de um servidor.
+
+- #### `list-participants`
+  Lista o nome dos participantes do servidor atual.
+  - Precisa estar logado para utilizar.
+  - Precisa estar dentro de um servidor.
+  
 ## Limitações
 ### Precisa melhorar
  - Tenho certeza que existe uma forma melhor de armazenar os comandos sem ter que usar uma sequencia de ifs.
