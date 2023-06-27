@@ -1,0 +1,5 @@
+<map id="CanalTexto" name="CanalTexto">
+<area shape="rect" id="Node000001" title="Sub&#45;Classe de Canal para canal de texto." alt="" coords="5,80,92,107"/>
+<area shape="rect" id="Node000002" href="$class_canal.html" title="Classe que armazena as informações de um canal." alt="" coords="21,5,76,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,47,51,80,46,80,46,47"/>
+</map>

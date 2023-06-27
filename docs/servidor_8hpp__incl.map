@@ -1,0 +1,10 @@
+<map id="include/servidor.hpp" name="include/servidor.hpp">
+<area shape="rect" id="Node000001" title="Este arquivo contém as declarações da classe Servidor." alt="" coords="5,5,141,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="58,155,112,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,34,40,67,34,86,36,106,46,125,61,143,57,146,42,128,30,107,28,86,35,65,58,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="45,80,101,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="76,33,76,65,70,65,70,33"/>
+<area shape="rect" id="Node000004" href="$canal_8hpp.html" title="Este arquivo contém as declarações da classe Canal." alt="" coords="125,80,202,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="90,30,139,69,135,73,87,35"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="152,109,111,147,107,143,148,105"/>
+</map>
