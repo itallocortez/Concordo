@@ -64,11 +64,11 @@ O que resulta no comando `login itallocortez@gmail.com 12345`
 ### Lista de Comandos
 A seguir, estão listados todos os comandos disponíveis para interagir com o sistema:
 
-- #### `quit`
+- ### `quit`
   Fecha o programa.
   - Pode ser utilizado a qualquer momento.
   
-- #### `create-user <email> <senha> <nome>`
+- ### `create-user <email> <senha> <nome>`
   Cadastra um novo usuário no sistema. É necessário informar o e-mail, a senha e o nome do usuário.
   - A senha não pode conter espaços.
   - O nome do usuário pode conter espaços.
@@ -78,7 +78,7 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   create-user itallocortez@gmail.com 12345 Itallo Cortez
   ```
   
-- #### `login <e-mail> <senha>`
+- ### `login <e-mail> <senha>`
   Efetua o login de um usuário cadastrado. É necessário informar o e-mail e a senha do usuário.
 
   Exemplo de uso:
@@ -86,11 +86,11 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   login itallocortez@gmail.com 12345
   ```
   
-- #### `disconnect`
+- ### `disconnect`
   Desconecta da conta atual.
   - Precisa estar logado.
 
-- #### `create-server <nome>`
+- ### `create-server <nome>`
   Cria um servidor com o nome informado.
   - Precisa estar logado para utilizar.
   - O usuário atual será o dono do servidor.
@@ -101,7 +101,7 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   create-server jogos
   ```
   
-- #### `set-server-desc <nome> "<descrição>"`
+- ### `set-server-desc <nome> "<descrição>"`
   Altera a descrição de um servidor especifico. É necessário informar o nome do servidor e a nova descrição.
   - Precisa estar logado para utilizar.
   - Somente o dono do servidor pode alterar sua descrição.
@@ -112,7 +112,7 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   set-server-desc jogos "Servidor de Jogos"
   ```
   
-- #### `set-server-invite-code <nome> <código>`
+- ### `set-server-invite-code <nome> <código>`
   Altera o código de convite um servidor especifico. É necessário informar o nome do servidor e a novo código.
   - Precisa estar logado para utilizar.
   - Somente o dono do servidor pode alterar seu código.
@@ -124,11 +124,11 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   set-server-invite-code jogos
   ```
   
-- #### `list-servers`
+- ### `list-servers`
   Imprime o nome de todos os servidores cadastrados no sistema.
   - Precisa estar logado para utilizar.
 
-- #### `remove-server <nome>`
+- ### `remove-server <nome>`
   Remove um servidor especifico do sistema. É necessário informar o nome do servidor.
   - Precisa estar logado para utilizar.
   - Somente o dono do servidor pode removê-lo.
@@ -138,7 +138,7 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   remove-server jogos
   ```
   
-- #### `enter-server <nome> <código>`
+- ### `enter-server <nome> <código>`
   Entra em um servidor. É necessário informar o nome do servidor.
   - Precisa estar logado para utilizar.
   - Caso o servidor exija um código de convite, será necessário informá-lo.
@@ -151,12 +151,12 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   enter-server jogos 4567
   ```
   
-- #### `leave-server`
+- ### `leave-server`
   Sai do servidor atual.
   - Precisa estar logado para utilizar.
   - Precisa estar dentro de um servidor.
 
-- #### `list-participants`
+- ### `list-participants`
   Lista o nome dos participantes do servidor atual.
   - Precisa estar logado para utilizar.
   - Precisa estar dentro de um servidor.

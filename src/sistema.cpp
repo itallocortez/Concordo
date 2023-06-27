@@ -8,7 +8,8 @@
 
 using namespace std;
 
-Sistema::Sistema(){
+Sistema::Sistema()
+{
   
 }
 
