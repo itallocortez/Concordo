@@ -250,6 +250,9 @@ void Sistema::executarComando(void)
           if(servidorPeloNome(nome) == nullptr) {
             // Cria o objeto do tipo Servidor
             Servidor *s = new Servidor(usuarioAtualId, nome);
+
+            // Adiciona o dono como participante
+            s->addParticipante(usuarioAtualId);
     
             // Coloca ele na lista de servidores do sistema.
             servidores.push_back(s);
