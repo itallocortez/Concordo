@@ -385,345 +385,348 @@ Atributos Privados</h2></td></tr>
 <div class="line"><span class="lineno">  250</span>          <span class="keywordflow">if</span>(<a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome) == <span class="keyword">nullptr</span>) {</div>
 <div class="line"><span class="lineno">  251</span>            <span class="comment">// Cria o objeto do tipo Servidor</span></div>
 <div class="line"><span class="lineno">  252</span>            <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <span class="keyword">new</span> <a class="code hl_class" href="class_servidor.html">Servidor</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>, nome);</div>
-<div class="line"><span class="lineno">  253</span>    </div>
-<div class="line"><span class="lineno">  254</span>            <span class="comment">// Coloca ele na lista de servidores do sistema.</span></div>
-<div class="line"><span class="lineno">  255</span>            <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.push_back(s);</div>
+<div class="line"><span class="lineno">  253</span> </div>
+<div class="line"><span class="lineno">  254</span>            <span class="comment">// Adiciona o dono como participante</span></div>
+<div class="line"><span class="lineno">  255</span>            s-&gt;<a class="code hl_function" href="class_servidor.html#a6faae24ee9ada4d86e4859703c4af9fb">addParticipante</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>);</div>
 <div class="line"><span class="lineno">  256</span>    </div>
-<div class="line"><span class="lineno">  257</span>            <span class="comment">// Retorna que o servidor foi criado.</span></div>
-<div class="line"><span class="lineno">  258</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor Criado&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  259</span>          } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  260</span>            <span class="comment">// Avisa que já existe um servidor com esse nome.</span></div>
-<div class="line"><span class="lineno">  261</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor com esse nome já existe&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  262</span>          }</div>
-<div class="line"><span class="lineno">  263</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  264</span>          <span class="comment">// Se sobrou ou faltou argumentos, mostra a sintaxe correta.</span></div>
-<div class="line"><span class="lineno">  265</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Use: create-server &lt;nome-do-servidor&gt;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  266</span>        }</div>
-<div class="line"><span class="lineno">  267</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  268</span>        <span class="comment">// Se estiver deslogado</span></div>
-<div class="line"><span class="lineno">  269</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  270</span>      }</div>
-<div class="line"><span class="lineno">  271</span>    }</div>
-<div class="line"><span class="lineno">  272</span>  </div>
-<div class="line"><span class="lineno">  273</span>    <span class="comment">// Comando para Mudar a Descrição do Servidor</span></div>
-<div class="line"><span class="lineno">  274</span>    <span class="comment">// Só pode ser executado caso esteja logado e servidor for seu.</span></div>
-<div class="line"><span class="lineno">  275</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;set-server-desc&quot;</span>) {</div>
-<div class="line"><span class="lineno">  276</span>      <span class="comment">// Se estiver logado</span></div>
-<div class="line"><span class="lineno">  277</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
-<div class="line"><span class="lineno">  278</span>        <span class="comment">// Se forneceu os argumentos corretamente</span></div>
-<div class="line"><span class="lineno">  279</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() &gt; 0) {</div>
-<div class="line"><span class="lineno">  280</span>          <span class="comment">// Pega o nome do servidor</span></div>
-<div class="line"><span class="lineno">  281</span>          <span class="keywordtype">string</span> nome = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(0);</div>
-<div class="line"><span class="lineno">  282</span>  </div>
-<div class="line"><span class="lineno">  283</span>          <span class="comment">// Procura o ponteiro do servidor pelo nome</span></div>
-<div class="line"><span class="lineno">  284</span>          <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome);</div>
+<div class="line"><span class="lineno">  257</span>            <span class="comment">// Coloca ele na lista de servidores do sistema.</span></div>
+<div class="line"><span class="lineno">  258</span>            <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.push_back(s);</div>
+<div class="line"><span class="lineno">  259</span>    </div>
+<div class="line"><span class="lineno">  260</span>            <span class="comment">// Retorna que o servidor foi criado.</span></div>
+<div class="line"><span class="lineno">  261</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor Criado&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  262</span>          } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  263</span>            <span class="comment">// Avisa que já existe um servidor com esse nome.</span></div>
+<div class="line"><span class="lineno">  264</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor com esse nome já existe&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  265</span>          }</div>
+<div class="line"><span class="lineno">  266</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  267</span>          <span class="comment">// Se sobrou ou faltou argumentos, mostra a sintaxe correta.</span></div>
+<div class="line"><span class="lineno">  268</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Use: create-server &lt;nome-do-servidor&gt;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  269</span>        }</div>
+<div class="line"><span class="lineno">  270</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  271</span>        <span class="comment">// Se estiver deslogado</span></div>
+<div class="line"><span class="lineno">  272</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  273</span>      }</div>
+<div class="line"><span class="lineno">  274</span>    }</div>
+<div class="line"><span class="lineno">  275</span>  </div>
+<div class="line"><span class="lineno">  276</span>    <span class="comment">// Comando para Mudar a Descrição do Servidor</span></div>
+<div class="line"><span class="lineno">  277</span>    <span class="comment">// Só pode ser executado caso esteja logado e servidor for seu.</span></div>
+<div class="line"><span class="lineno">  278</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;set-server-desc&quot;</span>) {</div>
+<div class="line"><span class="lineno">  279</span>      <span class="comment">// Se estiver logado</span></div>
+<div class="line"><span class="lineno">  280</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
+<div class="line"><span class="lineno">  281</span>        <span class="comment">// Se forneceu os argumentos corretamente</span></div>
+<div class="line"><span class="lineno">  282</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() &gt; 0) {</div>
+<div class="line"><span class="lineno">  283</span>          <span class="comment">// Pega o nome do servidor</span></div>
+<div class="line"><span class="lineno">  284</span>          <span class="keywordtype">string</span> nome = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(0);</div>
 <div class="line"><span class="lineno">  285</span>  </div>
-<div class="line"><span class="lineno">  286</span>          <span class="comment">// Se o servidor existir</span></div>
-<div class="line"><span class="lineno">  287</span>          <span class="keywordflow">if</span>(s != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">  288</span>            <span class="comment">// Se o usuário for o dono</span></div>
-<div class="line"><span class="lineno">  289</span>            <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a68aadadb2b5fdd5cfba6bad29df84b90">getDonoId</a>() == <a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>) {</div>
-<div class="line"><span class="lineno">  290</span>              <span class="comment">// Pega a descrição dada pelo usuário</span></div>
-<div class="line"><span class="lineno">  291</span>  </div>
-<div class="line"><span class="lineno">  292</span>              <span class="comment">// Vamos pegar a descrição agora</span></div>
-<div class="line"><span class="lineno">  293</span>              <span class="keywordtype">string</span> desc;</div>
+<div class="line"><span class="lineno">  286</span>          <span class="comment">// Procura o ponteiro do servidor pelo nome</span></div>
+<div class="line"><span class="lineno">  287</span>          <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome);</div>
+<div class="line"><span class="lineno">  288</span>  </div>
+<div class="line"><span class="lineno">  289</span>          <span class="comment">// Se o servidor existir</span></div>
+<div class="line"><span class="lineno">  290</span>          <span class="keywordflow">if</span>(s != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  291</span>            <span class="comment">// Se o usuário for o dono</span></div>
+<div class="line"><span class="lineno">  292</span>            <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a68aadadb2b5fdd5cfba6bad29df84b90">getDonoId</a>() == <a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>) {</div>
+<div class="line"><span class="lineno">  293</span>              <span class="comment">// Pega a descrição dada pelo usuário</span></div>
 <div class="line"><span class="lineno">  294</span>  </div>
-<div class="line"><span class="lineno">  295</span>              <span class="comment">// Vai funcionar se usou aspas ou não na descrição.</span></div>
-<div class="line"><span class="lineno">  296</span>              </div>
-<div class="line"><span class="lineno">  297</span>              <span class="comment">// Junta os argumentos para formar a descrição completa</span></div>
-<div class="line"><span class="lineno">  298</span>              <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>(); i++) {</div>
-<div class="line"><span class="lineno">  299</span>                desc += <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(i);</div>
-<div class="line"><span class="lineno">  300</span>      </div>
-<div class="line"><span class="lineno">  301</span>                <span class="comment">// Adiciona um espaço entre as partes da descrição</span></div>
-<div class="line"><span class="lineno">  302</span>                <span class="keywordflow">if</span> (i &lt; <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() - 1) {</div>
-<div class="line"><span class="lineno">  303</span>                  desc += <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><span class="lineno">  304</span>                }</div>
-<div class="line"><span class="lineno">  305</span>              }</div>
-<div class="line"><span class="lineno">  306</span>  </div>
-<div class="line"><span class="lineno">  307</span>              <span class="comment">// Se o usuário colocou a descrição entre aspas </span></div>
-<div class="line"><span class="lineno">  308</span>              <span class="comment">// Tira a aspa do começo e final</span></div>
+<div class="line"><span class="lineno">  295</span>              <span class="comment">// Vamos pegar a descrição agora</span></div>
+<div class="line"><span class="lineno">  296</span>              <span class="keywordtype">string</span> desc;</div>
+<div class="line"><span class="lineno">  297</span>  </div>
+<div class="line"><span class="lineno">  298</span>              <span class="comment">// Vai funcionar se usou aspas ou não na descrição.</span></div>
+<div class="line"><span class="lineno">  299</span>              </div>
+<div class="line"><span class="lineno">  300</span>              <span class="comment">// Junta os argumentos para formar a descrição completa</span></div>
+<div class="line"><span class="lineno">  301</span>              <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>(); i++) {</div>
+<div class="line"><span class="lineno">  302</span>                desc += <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(i);</div>
+<div class="line"><span class="lineno">  303</span>      </div>
+<div class="line"><span class="lineno">  304</span>                <span class="comment">// Adiciona um espaço entre as partes da descrição</span></div>
+<div class="line"><span class="lineno">  305</span>                <span class="keywordflow">if</span> (i &lt; <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() - 1) {</div>
+<div class="line"><span class="lineno">  306</span>                  desc += <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><span class="lineno">  307</span>                }</div>
+<div class="line"><span class="lineno">  308</span>              }</div>
 <div class="line"><span class="lineno">  309</span>  </div>
-<div class="line"><span class="lineno">  310</span>              <span class="comment">// Seta a descrição do servidor para a informada</span></div>
-<div class="line"><span class="lineno">  311</span>              s-&gt;<a class="code hl_function" href="class_servidor.html#a4a232f83c626f7afcd98f1aeed5986f5">setDescricao</a>(desc);</div>
+<div class="line"><span class="lineno">  310</span>              <span class="comment">// Se o usuário colocou a descrição entre aspas </span></div>
+<div class="line"><span class="lineno">  311</span>              <span class="comment">// Tira a aspa do começo e final</span></div>
 <div class="line"><span class="lineno">  312</span>  </div>
-<div class="line"><span class="lineno">  313</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Descrição do servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; modificada!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  314</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  315</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Você não pode alterar a descrição de um servidor que não foi criado por você&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  316</span>            }</div>
-<div class="line"><span class="lineno">  317</span>          } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  318</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; não existe&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  319</span>          }</div>
-<div class="line"><span class="lineno">  320</span>          </div>
-<div class="line"><span class="lineno">  321</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  322</span>          <span class="comment">// Se sobrou ou faltou argumentos, mostra a sintaxe correta.</span></div>
-<div class="line"><span class="lineno">  323</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Use: set-server-desc &lt;nome-do-servidor&gt; &lt;descrição&gt;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  324</span>        }</div>
-<div class="line"><span class="lineno">  325</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  326</span>        <span class="comment">// Se não estiver deslogado</span></div>
-<div class="line"><span class="lineno">  327</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  328</span>      }</div>
-<div class="line"><span class="lineno">  329</span>    }</div>
-<div class="line"><span class="lineno">  330</span>  </div>
-<div class="line"><span class="lineno">  331</span>    <span class="comment">// Comando para Setar Código de Convite Para o Servidor</span></div>
-<div class="line"><span class="lineno">  332</span>    <span class="comment">// Precisa estar logado e ser dono do servidor para utilizar</span></div>
-<div class="line"><span class="lineno">  333</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;set-server-invite-code&quot;</span>) {</div>
-<div class="line"><span class="lineno">  334</span>      <span class="comment">// Verifica se está logado</span></div>
-<div class="line"><span class="lineno">  335</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
-<div class="line"><span class="lineno">  336</span>        <span class="comment">// Verifica se informou pelo menos o nome</span></div>
-<div class="line"><span class="lineno">  337</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() &gt; 0) {</div>
-<div class="line"><span class="lineno">  338</span>          <span class="comment">// Pega o nome do servidor</span></div>
-<div class="line"><span class="lineno">  339</span>          <span class="keywordtype">string</span> nome = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(0);</div>
-<div class="line"><span class="lineno">  340</span>  </div>
-<div class="line"><span class="lineno">  341</span>          <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome);</div>
-<div class="line"><span class="lineno">  342</span>          </div>
-<div class="line"><span class="lineno">  343</span>          <span class="comment">// Verifica se existe um servidor com esse nome</span></div>
-<div class="line"><span class="lineno">  344</span>          <span class="keywordflow">if</span>(s != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">  345</span>            <span class="comment">// Se o usuário logado é dono do servidor</span></div>
-<div class="line"><span class="lineno">  346</span>            <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a68aadadb2b5fdd5cfba6bad29df84b90">getDonoId</a>() == <a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>) {</div>
-<div class="line"><span class="lineno">  347</span>              <span class="comment">// Pega o código do servidor</span></div>
-<div class="line"><span class="lineno">  348</span>              <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() == 2) {</div>
-<div class="line"><span class="lineno">  349</span>                <span class="comment">// Coloca o código de convite informado</span></div>
-<div class="line"><span class="lineno">  350</span>                s-&gt;<a class="code hl_function" href="class_servidor.html#ae2ddfd916313301db4c26ece2031ec3c">setCodigoConvite</a>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(1));</div>
-<div class="line"><span class="lineno">  351</span>  </div>
-<div class="line"><span class="lineno">  352</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Código de convite do servidor &#39;&quot;</span> &lt;&lt; s-&gt;<a class="code hl_function" href="class_servidor.html#aaeefe7bf184387e6847007ac77005490">getNome</a>() &lt;&lt;  <span class="stringliteral">&quot;&#39; modificado!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  353</span>              } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  354</span>                s-&gt;<a class="code hl_function" href="class_servidor.html#ae2ddfd916313301db4c26ece2031ec3c">setCodigoConvite</a>(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><span class="lineno">  355</span>  </div>
-<div class="line"><span class="lineno">  356</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Código de convite do servidor &#39;&quot;</span> &lt;&lt; s-&gt;<a class="code hl_function" href="class_servidor.html#aaeefe7bf184387e6847007ac77005490">getNome</a>() &lt;&lt;  <span class="stringliteral">&quot;&#39; removido!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  357</span>              }</div>
-<div class="line"><span class="lineno">  358</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  359</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Somente o dono do servidor pode alterar o código de convite.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  360</span>            }</div>
-<div class="line"><span class="lineno">  361</span>          } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  362</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; não encontrado.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  363</span>          }</div>
-<div class="line"><span class="lineno">  364</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  365</span>          <span class="comment">// Se faltou ou sobrou argumentos</span></div>
-<div class="line"><span class="lineno">  366</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Use: set-server-invite-code &lt;nome-do-servidor&gt; &lt;codigo&gt;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  367</span>        }</div>
-<div class="line"><span class="lineno">  368</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  369</span>        <span class="comment">// Se estiver desconectado</span></div>
-<div class="line"><span class="lineno">  370</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  371</span>      }</div>
-<div class="line"><span class="lineno">  372</span>    }</div>
-<div class="line"><span class="lineno">  373</span>  </div>
-<div class="line"><span class="lineno">  374</span>    <span class="comment">// Comando para listar servidores do sistema</span></div>
-<div class="line"><span class="lineno">  375</span>    <span class="comment">// Precisa estar logado para executar.</span></div>
-<div class="line"><span class="lineno">  376</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;list-servers&quot;</span>) {</div>
-<div class="line"><span class="lineno">  377</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
-<div class="line"><span class="lineno">  378</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.size() &gt; 0) {</div>
-<div class="line"><span class="lineno">  379</span>          <span class="comment">// Para cada servidor do sistema</span></div>
-<div class="line"><span class="lineno">  380</span>          <span class="keywordflow">for</span> (<a class="code hl_class" href="class_servidor.html">Servidor</a> *servidor : <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>) {</div>
-<div class="line"><span class="lineno">  381</span>            <span class="comment">// Exibe o nome do servidor</span></div>
-<div class="line"><span class="lineno">  382</span>            std::cout &lt;&lt; servidor-&gt;getNome() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  383</span>          }</div>
-<div class="line"><span class="lineno">  384</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  385</span>          <span class="comment">// Se não existirem servidores</span></div>
-<div class="line"><span class="lineno">  386</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Nenhum servidor cadastrado.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  387</span>        }</div>
-<div class="line"><span class="lineno">  388</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  389</span>        <span class="comment">// Se estiver deslogado</span></div>
-<div class="line"><span class="lineno">  390</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  391</span>      }</div>
-<div class="line"><span class="lineno">  392</span>    }</div>
-<div class="line"><span class="lineno">  393</span>  </div>
-<div class="line"><span class="lineno">  394</span>    <span class="comment">// Comando para remover servidor do sistema</span></div>
-<div class="line"><span class="lineno">  395</span>    <span class="comment">// Precisa estar logado e ser dono do servidor.</span></div>
-<div class="line"><span class="lineno">  396</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;remove-server&quot;</span>) {</div>
-<div class="line"><span class="lineno">  397</span>      <span class="comment">// Verifica se está logado</span></div>
-<div class="line"><span class="lineno">  398</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
-<div class="line"><span class="lineno">  399</span>        <span class="comment">// Se forneceu o nome do servidor</span></div>
-<div class="line"><span class="lineno">  400</span>         <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() == 1) {</div>
-<div class="line"><span class="lineno">  401</span>           <span class="comment">// Pega o nome do servidor informado</span></div>
-<div class="line"><span class="lineno">  402</span>           <span class="keywordtype">string</span> nome = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(0);</div>
-<div class="line"><span class="lineno">  403</span>  </div>
-<div class="line"><span class="lineno">  404</span>           <span class="comment">// Procura o ponteiro do servidor pelo nome</span></div>
-<div class="line"><span class="lineno">  405</span>           <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome);</div>
+<div class="line"><span class="lineno">  313</span>              <span class="comment">// Seta a descrição do servidor para a informada</span></div>
+<div class="line"><span class="lineno">  314</span>              s-&gt;<a class="code hl_function" href="class_servidor.html#a4a232f83c626f7afcd98f1aeed5986f5">setDescricao</a>(desc);</div>
+<div class="line"><span class="lineno">  315</span>  </div>
+<div class="line"><span class="lineno">  316</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Descrição do servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; modificada!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  317</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  318</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Você não pode alterar a descrição de um servidor que não foi criado por você&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  319</span>            }</div>
+<div class="line"><span class="lineno">  320</span>          } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  321</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; não existe&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  322</span>          }</div>
+<div class="line"><span class="lineno">  323</span>          </div>
+<div class="line"><span class="lineno">  324</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  325</span>          <span class="comment">// Se sobrou ou faltou argumentos, mostra a sintaxe correta.</span></div>
+<div class="line"><span class="lineno">  326</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Use: set-server-desc &lt;nome-do-servidor&gt; &lt;descrição&gt;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  327</span>        }</div>
+<div class="line"><span class="lineno">  328</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  329</span>        <span class="comment">// Se não estiver deslogado</span></div>
+<div class="line"><span class="lineno">  330</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  331</span>      }</div>
+<div class="line"><span class="lineno">  332</span>    }</div>
+<div class="line"><span class="lineno">  333</span>  </div>
+<div class="line"><span class="lineno">  334</span>    <span class="comment">// Comando para Setar Código de Convite Para o Servidor</span></div>
+<div class="line"><span class="lineno">  335</span>    <span class="comment">// Precisa estar logado e ser dono do servidor para utilizar</span></div>
+<div class="line"><span class="lineno">  336</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;set-server-invite-code&quot;</span>) {</div>
+<div class="line"><span class="lineno">  337</span>      <span class="comment">// Verifica se está logado</span></div>
+<div class="line"><span class="lineno">  338</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
+<div class="line"><span class="lineno">  339</span>        <span class="comment">// Verifica se informou pelo menos o nome</span></div>
+<div class="line"><span class="lineno">  340</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() &gt; 0) {</div>
+<div class="line"><span class="lineno">  341</span>          <span class="comment">// Pega o nome do servidor</span></div>
+<div class="line"><span class="lineno">  342</span>          <span class="keywordtype">string</span> nome = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(0);</div>
+<div class="line"><span class="lineno">  343</span>  </div>
+<div class="line"><span class="lineno">  344</span>          <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome);</div>
+<div class="line"><span class="lineno">  345</span>          </div>
+<div class="line"><span class="lineno">  346</span>          <span class="comment">// Verifica se existe um servidor com esse nome</span></div>
+<div class="line"><span class="lineno">  347</span>          <span class="keywordflow">if</span>(s != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  348</span>            <span class="comment">// Se o usuário logado é dono do servidor</span></div>
+<div class="line"><span class="lineno">  349</span>            <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a68aadadb2b5fdd5cfba6bad29df84b90">getDonoId</a>() == <a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>) {</div>
+<div class="line"><span class="lineno">  350</span>              <span class="comment">// Pega o código do servidor</span></div>
+<div class="line"><span class="lineno">  351</span>              <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() == 2) {</div>
+<div class="line"><span class="lineno">  352</span>                <span class="comment">// Coloca o código de convite informado</span></div>
+<div class="line"><span class="lineno">  353</span>                s-&gt;<a class="code hl_function" href="class_servidor.html#ae2ddfd916313301db4c26ece2031ec3c">setCodigoConvite</a>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(1));</div>
+<div class="line"><span class="lineno">  354</span>  </div>
+<div class="line"><span class="lineno">  355</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Código de convite do servidor &#39;&quot;</span> &lt;&lt; s-&gt;<a class="code hl_function" href="class_servidor.html#aaeefe7bf184387e6847007ac77005490">getNome</a>() &lt;&lt;  <span class="stringliteral">&quot;&#39; modificado!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  356</span>              } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  357</span>                s-&gt;<a class="code hl_function" href="class_servidor.html#ae2ddfd916313301db4c26ece2031ec3c">setCodigoConvite</a>(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno">  358</span>  </div>
+<div class="line"><span class="lineno">  359</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Código de convite do servidor &#39;&quot;</span> &lt;&lt; s-&gt;<a class="code hl_function" href="class_servidor.html#aaeefe7bf184387e6847007ac77005490">getNome</a>() &lt;&lt;  <span class="stringliteral">&quot;&#39; removido!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  360</span>              }</div>
+<div class="line"><span class="lineno">  361</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  362</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Somente o dono do servidor pode alterar o código de convite.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  363</span>            }</div>
+<div class="line"><span class="lineno">  364</span>          } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  365</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; não encontrado.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  366</span>          }</div>
+<div class="line"><span class="lineno">  367</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  368</span>          <span class="comment">// Se faltou ou sobrou argumentos</span></div>
+<div class="line"><span class="lineno">  369</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Use: set-server-invite-code &lt;nome-do-servidor&gt; &lt;codigo&gt;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  370</span>        }</div>
+<div class="line"><span class="lineno">  371</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  372</span>        <span class="comment">// Se estiver desconectado</span></div>
+<div class="line"><span class="lineno">  373</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  374</span>      }</div>
+<div class="line"><span class="lineno">  375</span>    }</div>
+<div class="line"><span class="lineno">  376</span>  </div>
+<div class="line"><span class="lineno">  377</span>    <span class="comment">// Comando para listar servidores do sistema</span></div>
+<div class="line"><span class="lineno">  378</span>    <span class="comment">// Precisa estar logado para executar.</span></div>
+<div class="line"><span class="lineno">  379</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;list-servers&quot;</span>) {</div>
+<div class="line"><span class="lineno">  380</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
+<div class="line"><span class="lineno">  381</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.size() &gt; 0) {</div>
+<div class="line"><span class="lineno">  382</span>          <span class="comment">// Para cada servidor do sistema</span></div>
+<div class="line"><span class="lineno">  383</span>          <span class="keywordflow">for</span> (<a class="code hl_class" href="class_servidor.html">Servidor</a> *servidor : <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>) {</div>
+<div class="line"><span class="lineno">  384</span>            <span class="comment">// Exibe o nome do servidor</span></div>
+<div class="line"><span class="lineno">  385</span>            std::cout &lt;&lt; servidor-&gt;getNome() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  386</span>          }</div>
+<div class="line"><span class="lineno">  387</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  388</span>          <span class="comment">// Se não existirem servidores</span></div>
+<div class="line"><span class="lineno">  389</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Nenhum servidor cadastrado.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  390</span>        }</div>
+<div class="line"><span class="lineno">  391</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  392</span>        <span class="comment">// Se estiver deslogado</span></div>
+<div class="line"><span class="lineno">  393</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  394</span>      }</div>
+<div class="line"><span class="lineno">  395</span>    }</div>
+<div class="line"><span class="lineno">  396</span>  </div>
+<div class="line"><span class="lineno">  397</span>    <span class="comment">// Comando para remover servidor do sistema</span></div>
+<div class="line"><span class="lineno">  398</span>    <span class="comment">// Precisa estar logado e ser dono do servidor.</span></div>
+<div class="line"><span class="lineno">  399</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;remove-server&quot;</span>) {</div>
+<div class="line"><span class="lineno">  400</span>      <span class="comment">// Verifica se está logado</span></div>
+<div class="line"><span class="lineno">  401</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
+<div class="line"><span class="lineno">  402</span>        <span class="comment">// Se forneceu o nome do servidor</span></div>
+<div class="line"><span class="lineno">  403</span>         <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() == 1) {</div>
+<div class="line"><span class="lineno">  404</span>           <span class="comment">// Pega o nome do servidor informado</span></div>
+<div class="line"><span class="lineno">  405</span>           <span class="keywordtype">string</span> nome = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(0);</div>
 <div class="line"><span class="lineno">  406</span>  </div>
-<div class="line"><span class="lineno">  407</span>           <span class="comment">// Se o servidor existir</span></div>
-<div class="line"><span class="lineno">  408</span>           <span class="keywordflow">if</span>(s != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">  409</span>             <span class="comment">// Verifica se o usuário logado é dono</span></div>
-<div class="line"><span class="lineno">  410</span>             <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a68aadadb2b5fdd5cfba6bad29df84b90">getDonoId</a>() == <a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>) {</div>
-<div class="line"><span class="lineno">  411</span>               <span class="comment">// Remove o servidor do &lt;vector&gt; de servidores.</span></div>
-<div class="line"><span class="lineno">  412</span>               </div>
-<div class="line"><span class="lineno">  413</span>               <span class="comment">// Encontrar o iterador para o elemento com base no valor</span></div>
-<div class="line"><span class="lineno">  414</span>               <span class="keyword">auto</span> it = std::find(<a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.begin(), <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.end(), s);</div>
-<div class="line"><span class="lineno">  415</span>                </div>
-<div class="line"><span class="lineno">  416</span>               <span class="comment">// Verificar se o elemento foi encontrado</span></div>
-<div class="line"><span class="lineno">  417</span>               <span class="keywordflow">if</span> (it != <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.end()) {</div>
-<div class="line"><span class="lineno">  418</span>                  <span class="comment">// Apagar o elemento do vetor</span></div>
-<div class="line"><span class="lineno">  419</span>                  <span class="keyword">delete</span> *it;</div>
-<div class="line"><span class="lineno">  420</span>                  <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.erase(it);</div>
-<div class="line"><span class="lineno">  421</span>               }</div>
-<div class="line"><span class="lineno">  422</span>  </div>
-<div class="line"><span class="lineno">  423</span>               <span class="comment">// Se o usuário estiver visualizando o servidor removido</span></div>
-<div class="line"><span class="lineno">  424</span>               <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> == s) {</div>
-<div class="line"><span class="lineno">  425</span>                  <span class="comment">// Seta que não está mais visualizando nenhum servidor.</span></div>
-<div class="line"><span class="lineno">  426</span>                 <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  427</span>               }</div>
-<div class="line"><span class="lineno">  428</span>               </div>
-<div class="line"><span class="lineno">  429</span>               std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; removido.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  430</span>             } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  431</span>               <span class="comment">// Se não for dono</span></div>
-<div class="line"><span class="lineno">  432</span>               std::cout &lt;&lt; <span class="stringliteral">&quot;Somente o dono do servidor pode remover o servidor.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  433</span>             }</div>
-<div class="line"><span class="lineno">  434</span>           } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  435</span>             std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; não encontrado.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  436</span>           }</div>
-<div class="line"><span class="lineno">  437</span>           </div>
-<div class="line"><span class="lineno">  438</span>         } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  439</span>           <span class="comment">// Se faltou ou sobrou argumentos</span></div>
-<div class="line"><span class="lineno">  440</span>           std::cout &lt;&lt; <span class="stringliteral">&quot;Use: remove-server &lt;nome-do-servidor&gt;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  441</span>         }</div>
-<div class="line"><span class="lineno">  442</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  443</span>        <span class="comment">// Se estiver deslogado</span></div>
-<div class="line"><span class="lineno">  444</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  445</span>      }</div>
-<div class="line"><span class="lineno">  446</span>    }</div>
-<div class="line"><span class="lineno">  447</span>  </div>
-<div class="line"><span class="lineno">  448</span>    <span class="comment">// Comando para Entrar em um Servidor </span></div>
-<div class="line"><span class="lineno">  449</span>    <span class="comment">// Só pode ser usado se estiver logado</span></div>
-<div class="line"><span class="lineno">  450</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;enter-server&quot;</span>) {</div>
-<div class="line"><span class="lineno">  451</span>      <span class="comment">// Verifica se está logado</span></div>
-<div class="line"><span class="lineno">  452</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
-<div class="line"><span class="lineno">  453</span>        <span class="comment">// Verifica se o usuário não está visualizando a nenhum servidor</span></div>
-<div class="line"><span class="lineno">  454</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">  455</span>          <span class="comment">// Verifica se forneceu o nome do servidor</span></div>
-<div class="line"><span class="lineno">  456</span>          <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() &gt; 0) {</div>
-<div class="line"><span class="lineno">  457</span>            <span class="comment">// Pega o nome do servidor informado</span></div>
-<div class="line"><span class="lineno">  458</span>            <span class="keywordtype">string</span> nome = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(0);</div>
-<div class="line"><span class="lineno">  459</span>    </div>
-<div class="line"><span class="lineno">  460</span>            <span class="comment">// Procura o ponteiro do servidor</span></div>
-<div class="line"><span class="lineno">  461</span>            <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome);</div>
+<div class="line"><span class="lineno">  407</span>           <span class="comment">// Procura o ponteiro do servidor pelo nome</span></div>
+<div class="line"><span class="lineno">  408</span>           <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome);</div>
+<div class="line"><span class="lineno">  409</span>  </div>
+<div class="line"><span class="lineno">  410</span>           <span class="comment">// Se o servidor existir</span></div>
+<div class="line"><span class="lineno">  411</span>           <span class="keywordflow">if</span>(s != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  412</span>             <span class="comment">// Verifica se o usuário logado é dono</span></div>
+<div class="line"><span class="lineno">  413</span>             <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a68aadadb2b5fdd5cfba6bad29df84b90">getDonoId</a>() == <a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>) {</div>
+<div class="line"><span class="lineno">  414</span>               <span class="comment">// Remove o servidor do &lt;vector&gt; de servidores.</span></div>
+<div class="line"><span class="lineno">  415</span>               </div>
+<div class="line"><span class="lineno">  416</span>               <span class="comment">// Encontrar o iterador para o elemento com base no valor</span></div>
+<div class="line"><span class="lineno">  417</span>               <span class="keyword">auto</span> it = std::find(<a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.begin(), <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.end(), s);</div>
+<div class="line"><span class="lineno">  418</span>                </div>
+<div class="line"><span class="lineno">  419</span>               <span class="comment">// Verificar se o elemento foi encontrado</span></div>
+<div class="line"><span class="lineno">  420</span>               <span class="keywordflow">if</span> (it != <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.end()) {</div>
+<div class="line"><span class="lineno">  421</span>                  <span class="comment">// Apagar o elemento do vetor</span></div>
+<div class="line"><span class="lineno">  422</span>                  <span class="keyword">delete</span> *it;</div>
+<div class="line"><span class="lineno">  423</span>                  <a class="code hl_variable" href="class_sistema.html#a9d821ae19a14a73af36cdf6794afab43">servidores</a>.erase(it);</div>
+<div class="line"><span class="lineno">  424</span>               }</div>
+<div class="line"><span class="lineno">  425</span>  </div>
+<div class="line"><span class="lineno">  426</span>               <span class="comment">// Se o usuário estiver visualizando o servidor removido</span></div>
+<div class="line"><span class="lineno">  427</span>               <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> == s) {</div>
+<div class="line"><span class="lineno">  428</span>                  <span class="comment">// Seta que não está mais visualizando nenhum servidor.</span></div>
+<div class="line"><span class="lineno">  429</span>                 <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  430</span>               }</div>
+<div class="line"><span class="lineno">  431</span>               </div>
+<div class="line"><span class="lineno">  432</span>               std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; removido.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  433</span>             } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  434</span>               <span class="comment">// Se não for dono</span></div>
+<div class="line"><span class="lineno">  435</span>               std::cout &lt;&lt; <span class="stringliteral">&quot;Somente o dono do servidor pode remover o servidor.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  436</span>             }</div>
+<div class="line"><span class="lineno">  437</span>           } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  438</span>             std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; não encontrado.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  439</span>           }</div>
+<div class="line"><span class="lineno">  440</span>           </div>
+<div class="line"><span class="lineno">  441</span>         } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  442</span>           <span class="comment">// Se faltou ou sobrou argumentos</span></div>
+<div class="line"><span class="lineno">  443</span>           std::cout &lt;&lt; <span class="stringliteral">&quot;Use: remove-server &lt;nome-do-servidor&gt;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  444</span>         }</div>
+<div class="line"><span class="lineno">  445</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  446</span>        <span class="comment">// Se estiver deslogado</span></div>
+<div class="line"><span class="lineno">  447</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  448</span>      }</div>
+<div class="line"><span class="lineno">  449</span>    }</div>
+<div class="line"><span class="lineno">  450</span>  </div>
+<div class="line"><span class="lineno">  451</span>    <span class="comment">// Comando para Entrar em um Servidor </span></div>
+<div class="line"><span class="lineno">  452</span>    <span class="comment">// Só pode ser usado se estiver logado</span></div>
+<div class="line"><span class="lineno">  453</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;enter-server&quot;</span>) {</div>
+<div class="line"><span class="lineno">  454</span>      <span class="comment">// Verifica se está logado</span></div>
+<div class="line"><span class="lineno">  455</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
+<div class="line"><span class="lineno">  456</span>        <span class="comment">// Verifica se o usuário não está visualizando a nenhum servidor</span></div>
+<div class="line"><span class="lineno">  457</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  458</span>          <span class="comment">// Verifica se forneceu o nome do servidor</span></div>
+<div class="line"><span class="lineno">  459</span>          <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() &gt; 0) {</div>
+<div class="line"><span class="lineno">  460</span>            <span class="comment">// Pega o nome do servidor informado</span></div>
+<div class="line"><span class="lineno">  461</span>            <span class="keywordtype">string</span> nome = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(0);</div>
 <div class="line"><span class="lineno">  462</span>    </div>
-<div class="line"><span class="lineno">  463</span>            <span class="comment">// Se o servidor existir</span></div>
-<div class="line"><span class="lineno">  464</span>            <span class="keywordflow">if</span>(s != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">  465</span>              <span class="comment">// Verifica se não exige código de convite</span></div>
-<div class="line"><span class="lineno">  466</span>              <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a3ce78e4ebf7c2757983d1c17f41e3b72">getCodigoConvite</a>() == <span class="stringliteral">&quot;&quot;</span>) {</div>
-<div class="line"><span class="lineno">  467</span>                <span class="comment">// Caso não exigir</span></div>
-<div class="line"><span class="lineno">  468</span>    </div>
-<div class="line"><span class="lineno">  469</span>                <span class="comment">// Se o usuário não for participante do servidor</span></div>
-<div class="line"><span class="lineno">  470</span>                <span class="keywordflow">if</span>(!s-&gt;<a class="code hl_function" href="class_servidor.html#a056de21bf8d13685630a7820b88639e5">participa</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>)) {</div>
-<div class="line"><span class="lineno">  471</span>                  <span class="comment">// Adiciona como participante</span></div>
-<div class="line"><span class="lineno">  472</span>                  s-&gt;<a class="code hl_function" href="class_servidor.html#a6faae24ee9ada4d86e4859703c4af9fb">addParticipante</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>);</div>
-<div class="line"><span class="lineno">  473</span>                }</div>
-<div class="line"><span class="lineno">  474</span>    </div>
-<div class="line"><span class="lineno">  475</span>                <span class="comment">// Seta o servidorAtual que o usuário está visualizando.</span></div>
-<div class="line"><span class="lineno">  476</span>                <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = s;</div>
-<div class="line"><span class="lineno">  477</span>                </div>
-<div class="line"><span class="lineno">  478</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Entrou no servidor com sucesso&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  479</span>              } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  480</span>                <span class="comment">// Caso exigir código de convite</span></div>
-<div class="line"><span class="lineno">  481</span>    </div>
-<div class="line"><span class="lineno">  482</span>                <span class="comment">// Se o usuário for o dono</span></div>
-<div class="line"><span class="lineno">  483</span>                <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a68aadadb2b5fdd5cfba6bad29df84b90">getDonoId</a>() == <a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>) {</div>
-<div class="line"><span class="lineno">  484</span>                  <span class="comment">// Entra no servidor sem verificar nada</span></div>
-<div class="line"><span class="lineno">  485</span>                  </div>
-<div class="line"><span class="lineno">  486</span>                  <span class="comment">// Se o usuário não for participante do servidor</span></div>
-<div class="line"><span class="lineno">  487</span>                  <span class="keywordflow">if</span>(!s-&gt;<a class="code hl_function" href="class_servidor.html#a056de21bf8d13685630a7820b88639e5">participa</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>)) {</div>
-<div class="line"><span class="lineno">  488</span>                    <span class="comment">// Adiciona como participante</span></div>
-<div class="line"><span class="lineno">  489</span>                    s-&gt;<a class="code hl_function" href="class_servidor.html#a6faae24ee9ada4d86e4859703c4af9fb">addParticipante</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>);</div>
-<div class="line"><span class="lineno">  490</span>                  }</div>
-<div class="line"><span class="lineno">  491</span>    </div>
-<div class="line"><span class="lineno">  492</span>                  <span class="comment">// Seta o servidorAtual que o usuário está visualizando.</span></div>
-<div class="line"><span class="lineno">  493</span>                  <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = s;</div>
-<div class="line"><span class="lineno">  494</span>                    </div>
-<div class="line"><span class="lineno">  495</span>                  std::cout &lt;&lt; <span class="stringliteral">&quot;Entrou no servidor com sucesso&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  496</span>                } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  497</span>                  <span class="comment">// Se não for o dono</span></div>
-<div class="line"><span class="lineno">  498</span>    </div>
-<div class="line"><span class="lineno">  499</span>                  <span class="comment">// Caso já seja participante não precisa informar o código de novo</span></div>
-<div class="line"><span class="lineno">  500</span>                  <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a056de21bf8d13685630a7820b88639e5">participa</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>)) {</div>
-<div class="line"><span class="lineno">  501</span>                      <span class="comment">// Seta o servidorAtual que o usuário está visualizando.</span></div>
-<div class="line"><span class="lineno">  502</span>                      <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = s;</div>
-<div class="line"><span class="lineno">  503</span>    </div>
-<div class="line"><span class="lineno">  504</span>                      std::cout &lt;&lt; <span class="stringliteral">&quot;Entrou no servidor com sucesso&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  505</span>                  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  506</span>                    <span class="comment">// Se não for participante </span></div>
-<div class="line"><span class="lineno">  507</span>                    </div>
-<div class="line"><span class="lineno">  508</span>                    <span class="comment">// Verifica se o usuário informou o código</span></div>
-<div class="line"><span class="lineno">  509</span>                    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() == 2) {</div>
-<div class="line"><span class="lineno">  510</span>                      <span class="comment">// Pega o código</span></div>
-<div class="line"><span class="lineno">  511</span>                      <span class="keywordtype">string</span> codigo = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(1);</div>
-<div class="line"><span class="lineno">  512</span>        </div>
-<div class="line"><span class="lineno">  513</span>                      <span class="comment">// Caso o código esteja correto</span></div>
-<div class="line"><span class="lineno">  514</span>                      <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a3ce78e4ebf7c2757983d1c17f41e3b72">getCodigoConvite</a>() == codigo) {</div>
-<div class="line"><span class="lineno">  515</span>                        <span class="comment">// Se o usuário não for participante do servidor</span></div>
-<div class="line"><span class="lineno">  516</span>                        <span class="keywordflow">if</span>(!s-&gt;<a class="code hl_function" href="class_servidor.html#a056de21bf8d13685630a7820b88639e5">participa</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>)) {                      </div>
-<div class="line"><span class="lineno">  517</span>                          <span class="comment">// Adiciona como participante</span></div>
-<div class="line"><span class="lineno">  518</span>                          s-&gt;<a class="code hl_function" href="class_servidor.html#a6faae24ee9ada4d86e4859703c4af9fb">addParticipante</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>);</div>
-<div class="line"><span class="lineno">  519</span>                        }</div>
-<div class="line"><span class="lineno">  520</span>    </div>
-<div class="line"><span class="lineno">  521</span>                        <span class="comment">// Seta o servidorAtual que o usuário está visualizando.</span></div>
-<div class="line"><span class="lineno">  522</span>                        <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = s;</div>
-<div class="line"><span class="lineno">  523</span>                        </div>
-<div class="line"><span class="lineno">  524</span>                        std::cout &lt;&lt; <span class="stringliteral">&quot;Entrou no servidor com sucesso&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  525</span>                      }</div>
-<div class="line"><span class="lineno">  526</span>                    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  527</span>                      std::cout &lt;&lt; <span class="stringliteral">&quot;Esse servidor exige código de convite para entrar.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  528</span>                    }</div>
-<div class="line"><span class="lineno">  529</span>                  }</div>
-<div class="line"><span class="lineno">  530</span>                }</div>
-<div class="line"><span class="lineno">  531</span>              }</div>
-<div class="line"><span class="lineno">  532</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  533</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; não encontrado.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  534</span>            }</div>
-<div class="line"><span class="lineno">  535</span>          } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  536</span>            <span class="comment">// Se faltou ou sobrou argumentos</span></div>
-<div class="line"><span class="lineno">  537</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Use: enter-server &lt;nome-do-servidor&gt; &lt;codigo-do-servidor&gt;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  538</span>          }</div>
-<div class="line"><span class="lineno">  539</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  540</span>          <span class="comment">// Se já estiver conectado a um servidor</span></div>
-<div class="line"><span class="lineno">  541</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Você já está conectado a um servidor.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  542</span>        }</div>
-<div class="line"><span class="lineno">  543</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  544</span>        <span class="comment">// Se estiver deslogado</span></div>
-<div class="line"><span class="lineno">  545</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  546</span>      }</div>
-<div class="line"><span class="lineno">  547</span>    }</div>
-<div class="line"><span class="lineno">  548</span>  </div>
-<div class="line"><span class="lineno">  549</span>    <span class="comment">// Comando para Sair do Servidor, deconecta o usuário do servidor</span></div>
-<div class="line"><span class="lineno">  550</span>    <span class="comment">// Precisa estar logado e conectado a um servidor</span></div>
-<div class="line"><span class="lineno">  551</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;leave-server&quot;</span>) {</div>
-<div class="line"><span class="lineno">  552</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
-<div class="line"><span class="lineno">  553</span>        <span class="comment">// Se estiver visualizando um servidor</span></div>
-<div class="line"><span class="lineno">  554</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">  555</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Saindo do servidor &#39;&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a>-&gt;<a class="code hl_function" href="class_servidor.html#aaeefe7bf184387e6847007ac77005490">getNome</a>() &lt;&lt; <span class="stringliteral">&quot;&#39;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  556</span>          </div>
-<div class="line"><span class="lineno">  557</span>          <span class="comment">// Seta que não está mais visualizando nenhum servidor.</span></div>
-<div class="line"><span class="lineno">  558</span>          <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  559</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  560</span>           std::cout &lt;&lt; <span class="stringliteral">&quot;Você não está visualizando nenhum servidor.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  561</span>        }</div>
-<div class="line"><span class="lineno">  562</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  563</span>        <span class="comment">// Se estiver deslogado</span></div>
-<div class="line"><span class="lineno">  564</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  565</span>      }</div>
-<div class="line"><span class="lineno">  566</span>    }</div>
-<div class="line"><span class="lineno">  567</span>  </div>
-<div class="line"><span class="lineno">  568</span>    <span class="comment">// Comando para Listar Pessoas em Um Servidor</span></div>
-<div class="line"><span class="lineno">  569</span>    <span class="comment">// Preciso estar logado e conectado a um servidor</span></div>
-<div class="line"><span class="lineno">  570</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;list-participants&quot;</span>) {</div>
-<div class="line"><span class="lineno">  571</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
-<div class="line"><span class="lineno">  572</span>        <span class="comment">// Se estiver visualizando um servidor</span></div>
-<div class="line"><span class="lineno">  573</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">  574</span>          <span class="comment">// Para cada participante no servidorAtual</span></div>
-<div class="line"><span class="lineno">  575</span>          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> participanteId : <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a>-&gt;getParticipantes()) {</div>
-<div class="line"><span class="lineno">  576</span>            <span class="comment">// Exibe o nome do servidor</span></div>
-<div class="line"><span class="lineno">  577</span>            std::cout &lt;&lt; <a class="code hl_function" href="class_sistema.html#aebc7ead2702256262557bb838d1f1c37">usuarioPeloId</a>(participanteId)-&gt;<a class="code hl_function" href="class_usuario.html#a160dc8cfe61406cc2935d0e529d3ed07">getNome</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  578</span>          }</div>
-<div class="line"><span class="lineno">  579</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  580</span>           std::cout &lt;&lt; <span class="stringliteral">&quot;Você não está visualizando nenhum servidor.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  581</span>        }</div>
-<div class="line"><span class="lineno">  582</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  583</span>        <span class="comment">// Se estiver deslogado</span></div>
-<div class="line"><span class="lineno">  584</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  585</span>      }</div>
-<div class="line"><span class="lineno">  586</span>    }</div>
-<div class="line"><span class="lineno">  587</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  588</span>    <span class="comment">// Se o comando digitado não existir</span></div>
-<div class="line"><span class="lineno">  589</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Comando inválido. Tente novamente.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  590</span>  }</div>
-<div class="line"><span class="lineno">  591</span>}</div>
+<div class="line"><span class="lineno">  463</span>            <span class="comment">// Procura o ponteiro do servidor</span></div>
+<div class="line"><span class="lineno">  464</span>            <a class="code hl_class" href="class_servidor.html">Servidor</a> *s = <a class="code hl_function" href="class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111">servidorPeloNome</a>(nome);</div>
+<div class="line"><span class="lineno">  465</span>    </div>
+<div class="line"><span class="lineno">  466</span>            <span class="comment">// Se o servidor existir</span></div>
+<div class="line"><span class="lineno">  467</span>            <span class="keywordflow">if</span>(s != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  468</span>              <span class="comment">// Verifica se não exige código de convite</span></div>
+<div class="line"><span class="lineno">  469</span>              <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a3ce78e4ebf7c2757983d1c17f41e3b72">getCodigoConvite</a>() == <span class="stringliteral">&quot;&quot;</span>) {</div>
+<div class="line"><span class="lineno">  470</span>                <span class="comment">// Caso não exigir</span></div>
+<div class="line"><span class="lineno">  471</span>    </div>
+<div class="line"><span class="lineno">  472</span>                <span class="comment">// Se o usuário não for participante do servidor</span></div>
+<div class="line"><span class="lineno">  473</span>                <span class="keywordflow">if</span>(!s-&gt;<a class="code hl_function" href="class_servidor.html#a056de21bf8d13685630a7820b88639e5">participa</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>)) {</div>
+<div class="line"><span class="lineno">  474</span>                  <span class="comment">// Adiciona como participante</span></div>
+<div class="line"><span class="lineno">  475</span>                  s-&gt;<a class="code hl_function" href="class_servidor.html#a6faae24ee9ada4d86e4859703c4af9fb">addParticipante</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>);</div>
+<div class="line"><span class="lineno">  476</span>                }</div>
+<div class="line"><span class="lineno">  477</span>    </div>
+<div class="line"><span class="lineno">  478</span>                <span class="comment">// Seta o servidorAtual que o usuário está visualizando.</span></div>
+<div class="line"><span class="lineno">  479</span>                <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = s;</div>
+<div class="line"><span class="lineno">  480</span>                </div>
+<div class="line"><span class="lineno">  481</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Entrou no servidor com sucesso&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  482</span>              } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  483</span>                <span class="comment">// Caso exigir código de convite</span></div>
+<div class="line"><span class="lineno">  484</span>    </div>
+<div class="line"><span class="lineno">  485</span>                <span class="comment">// Se o usuário for o dono</span></div>
+<div class="line"><span class="lineno">  486</span>                <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a68aadadb2b5fdd5cfba6bad29df84b90">getDonoId</a>() == <a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>) {</div>
+<div class="line"><span class="lineno">  487</span>                  <span class="comment">// Entra no servidor sem verificar nada</span></div>
+<div class="line"><span class="lineno">  488</span>                  </div>
+<div class="line"><span class="lineno">  489</span>                  <span class="comment">// Se o usuário não for participante do servidor</span></div>
+<div class="line"><span class="lineno">  490</span>                  <span class="keywordflow">if</span>(!s-&gt;<a class="code hl_function" href="class_servidor.html#a056de21bf8d13685630a7820b88639e5">participa</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>)) {</div>
+<div class="line"><span class="lineno">  491</span>                    <span class="comment">// Adiciona como participante</span></div>
+<div class="line"><span class="lineno">  492</span>                    s-&gt;<a class="code hl_function" href="class_servidor.html#a6faae24ee9ada4d86e4859703c4af9fb">addParticipante</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>);</div>
+<div class="line"><span class="lineno">  493</span>                  }</div>
+<div class="line"><span class="lineno">  494</span>    </div>
+<div class="line"><span class="lineno">  495</span>                  <span class="comment">// Seta o servidorAtual que o usuário está visualizando.</span></div>
+<div class="line"><span class="lineno">  496</span>                  <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = s;</div>
+<div class="line"><span class="lineno">  497</span>                    </div>
+<div class="line"><span class="lineno">  498</span>                  std::cout &lt;&lt; <span class="stringliteral">&quot;Entrou no servidor com sucesso&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  499</span>                } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  500</span>                  <span class="comment">// Se não for o dono</span></div>
+<div class="line"><span class="lineno">  501</span>    </div>
+<div class="line"><span class="lineno">  502</span>                  <span class="comment">// Caso já seja participante não precisa informar o código de novo</span></div>
+<div class="line"><span class="lineno">  503</span>                  <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a056de21bf8d13685630a7820b88639e5">participa</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>)) {</div>
+<div class="line"><span class="lineno">  504</span>                      <span class="comment">// Seta o servidorAtual que o usuário está visualizando.</span></div>
+<div class="line"><span class="lineno">  505</span>                      <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = s;</div>
+<div class="line"><span class="lineno">  506</span>    </div>
+<div class="line"><span class="lineno">  507</span>                      std::cout &lt;&lt; <span class="stringliteral">&quot;Entrou no servidor com sucesso&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  508</span>                  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  509</span>                    <span class="comment">// Se não for participante </span></div>
+<div class="line"><span class="lineno">  510</span>                    </div>
+<div class="line"><span class="lineno">  511</span>                    <span class="comment">// Verifica se o usuário informou o código</span></div>
+<div class="line"><span class="lineno">  512</span>                    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">getNumeroArgumentos</a>() == 2) {</div>
+<div class="line"><span class="lineno">  513</span>                      <span class="comment">// Pega o código</span></div>
+<div class="line"><span class="lineno">  514</span>                      <span class="keywordtype">string</span> codigo = <a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">getArgumento</a>(1);</div>
+<div class="line"><span class="lineno">  515</span>        </div>
+<div class="line"><span class="lineno">  516</span>                      <span class="comment">// Caso o código esteja correto</span></div>
+<div class="line"><span class="lineno">  517</span>                      <span class="keywordflow">if</span>(s-&gt;<a class="code hl_function" href="class_servidor.html#a3ce78e4ebf7c2757983d1c17f41e3b72">getCodigoConvite</a>() == codigo) {</div>
+<div class="line"><span class="lineno">  518</span>                        <span class="comment">// Se o usuário não for participante do servidor</span></div>
+<div class="line"><span class="lineno">  519</span>                        <span class="keywordflow">if</span>(!s-&gt;<a class="code hl_function" href="class_servidor.html#a056de21bf8d13685630a7820b88639e5">participa</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>)) {                      </div>
+<div class="line"><span class="lineno">  520</span>                          <span class="comment">// Adiciona como participante</span></div>
+<div class="line"><span class="lineno">  521</span>                          s-&gt;<a class="code hl_function" href="class_servidor.html#a6faae24ee9ada4d86e4859703c4af9fb">addParticipante</a>(<a class="code hl_variable" href="class_sistema.html#a95d69ce2d66c335cf7b00a321a94d645">usuarioAtualId</a>);</div>
+<div class="line"><span class="lineno">  522</span>                        }</div>
+<div class="line"><span class="lineno">  523</span>    </div>
+<div class="line"><span class="lineno">  524</span>                        <span class="comment">// Seta o servidorAtual que o usuário está visualizando.</span></div>
+<div class="line"><span class="lineno">  525</span>                        <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = s;</div>
+<div class="line"><span class="lineno">  526</span>                        </div>
+<div class="line"><span class="lineno">  527</span>                        std::cout &lt;&lt; <span class="stringliteral">&quot;Entrou no servidor com sucesso&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  528</span>                      }</div>
+<div class="line"><span class="lineno">  529</span>                    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  530</span>                      std::cout &lt;&lt; <span class="stringliteral">&quot;Esse servidor exige código de convite para entrar.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  531</span>                    }</div>
+<div class="line"><span class="lineno">  532</span>                  }</div>
+<div class="line"><span class="lineno">  533</span>                }</div>
+<div class="line"><span class="lineno">  534</span>              }</div>
+<div class="line"><span class="lineno">  535</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  536</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Servidor &#39;&quot;</span> &lt;&lt; nome &lt;&lt;  <span class="stringliteral">&quot;&#39; não encontrado.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  537</span>            }</div>
+<div class="line"><span class="lineno">  538</span>          } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  539</span>            <span class="comment">// Se faltou ou sobrou argumentos</span></div>
+<div class="line"><span class="lineno">  540</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Use: enter-server &lt;nome-do-servidor&gt; &lt;codigo-do-servidor&gt;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  541</span>          }</div>
+<div class="line"><span class="lineno">  542</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  543</span>          <span class="comment">// Se já estiver conectado a um servidor</span></div>
+<div class="line"><span class="lineno">  544</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Você já está conectado a um servidor.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  545</span>        }</div>
+<div class="line"><span class="lineno">  546</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  547</span>        <span class="comment">// Se estiver deslogado</span></div>
+<div class="line"><span class="lineno">  548</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  549</span>      }</div>
+<div class="line"><span class="lineno">  550</span>    }</div>
+<div class="line"><span class="lineno">  551</span>  </div>
+<div class="line"><span class="lineno">  552</span>    <span class="comment">// Comando para Sair do Servidor, deconecta o usuário do servidor</span></div>
+<div class="line"><span class="lineno">  553</span>    <span class="comment">// Precisa estar logado e conectado a um servidor</span></div>
+<div class="line"><span class="lineno">  554</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;leave-server&quot;</span>) {</div>
+<div class="line"><span class="lineno">  555</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
+<div class="line"><span class="lineno">  556</span>        <span class="comment">// Se estiver visualizando um servidor</span></div>
+<div class="line"><span class="lineno">  557</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  558</span>          std::cout &lt;&lt; <span class="stringliteral">&quot;Saindo do servidor &#39;&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a>-&gt;<a class="code hl_function" href="class_servidor.html#aaeefe7bf184387e6847007ac77005490">getNome</a>() &lt;&lt; <span class="stringliteral">&quot;&#39;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  559</span>          </div>
+<div class="line"><span class="lineno">  560</span>          <span class="comment">// Seta que não está mais visualizando nenhum servidor.</span></div>
+<div class="line"><span class="lineno">  561</span>          <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  562</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  563</span>           std::cout &lt;&lt; <span class="stringliteral">&quot;Você não está visualizando nenhum servidor.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  564</span>        }</div>
+<div class="line"><span class="lineno">  565</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  566</span>        <span class="comment">// Se estiver deslogado</span></div>
+<div class="line"><span class="lineno">  567</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  568</span>      }</div>
+<div class="line"><span class="lineno">  569</span>    }</div>
+<div class="line"><span class="lineno">  570</span>  </div>
+<div class="line"><span class="lineno">  571</span>    <span class="comment">// Comando para Listar Pessoas em Um Servidor</span></div>
+<div class="line"><span class="lineno">  572</span>    <span class="comment">// Preciso estar logado e conectado a um servidor</span></div>
+<div class="line"><span class="lineno">  573</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a5757ba332130b2e1b18333b14a2fefa1">comandoAtual</a>.<a class="code hl_function" href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">getComando</a>() == <span class="stringliteral">&quot;list-participants&quot;</span>) {</div>
+<div class="line"><span class="lineno">  574</span>      <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#aaa3ee4d889317c42c385d2f4548ce78f">estaLogado</a>) {</div>
+<div class="line"><span class="lineno">  575</span>        <span class="comment">// Se estiver visualizando um servidor</span></div>
+<div class="line"><span class="lineno">  576</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a> != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  577</span>          <span class="comment">// Para cada participante no servidorAtual</span></div>
+<div class="line"><span class="lineno">  578</span>          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> participanteId : <a class="code hl_variable" href="class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866">servidorAtual</a>-&gt;getParticipantes()) {</div>
+<div class="line"><span class="lineno">  579</span>            <span class="comment">// Exibe o nome do servidor</span></div>
+<div class="line"><span class="lineno">  580</span>            std::cout &lt;&lt; <a class="code hl_function" href="class_sistema.html#aebc7ead2702256262557bb838d1f1c37">usuarioPeloId</a>(participanteId)-&gt;<a class="code hl_function" href="class_usuario.html#a160dc8cfe61406cc2935d0e529d3ed07">getNome</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  581</span>          }</div>
+<div class="line"><span class="lineno">  582</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  583</span>           std::cout &lt;&lt; <span class="stringliteral">&quot;Você não está visualizando nenhum servidor.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  584</span>        }</div>
+<div class="line"><span class="lineno">  585</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  586</span>        <span class="comment">// Se estiver deslogado</span></div>
+<div class="line"><span class="lineno">  587</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Precisa estar logado para usar esse comando!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  588</span>      }</div>
+<div class="line"><span class="lineno">  589</span>    }</div>
+<div class="line"><span class="lineno">  590</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  591</span>    <span class="comment">// Se o comando digitado não existir</span></div>
+<div class="line"><span class="lineno">  592</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Comando inválido. Tente novamente.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  593</span>  }</div>
+<div class="line"><span class="lineno">  594</span>}</div>
 <div class="ttc" id="aclass_comando_html_a20bd753eeaec5c60b298a198ee8478da"><div class="ttname"><a href="class_comando.html#a20bd753eeaec5c60b298a198ee8478da">Comando::existe</a></div><div class="ttdeci">bool existe(void)</div><div class="ttdoc">Verifica se o comando existe.</div><div class="ttdef"><b>Definição</b> <a href="comando_8cpp_source.html#l00045">comando.cpp:45</a></div></div>
 <div class="ttc" id="aclass_comando_html_a8f3a297deb3bcaa49c67ab5a14ed6bbd"><div class="ttname"><a href="class_comando.html#a8f3a297deb3bcaa49c67ab5a14ed6bbd">Comando::getArgumento</a></div><div class="ttdeci">std::string getArgumento(int i)</div><div class="ttdoc">Retorna o argumento na posição especificada (excluindo o comando).</div><div class="ttdef"><b>Definição</b> <a href="comando_8cpp_source.html#l00035">comando.cpp:35</a></div></div>
 <div class="ttc" id="aclass_comando_html_a91065026f3b3ecfe333f7cb3ba85235b"><div class="ttname"><a href="class_comando.html#a91065026f3b3ecfe333f7cb3ba85235b">Comando::getNumeroArgumentos</a></div><div class="ttdeci">int getNumeroArgumentos(void)</div><div class="ttdoc">Retorna o número de argumentos (excluindo o comando).</div><div class="ttdef"><b>Definição</b> <a href="comando_8cpp_source.html#l00040">comando.cpp:40</a></div></div>
