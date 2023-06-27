@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.5)
 project(Concordo
         VERSION 1.0
         DESCRIPTION "Um sistema similar ao Discord, porém em modo de texto e sem recursos de rede."
-        HOMEPAGE_URL "https://github.com/itallocortez"
+        HOMEPAGE_URL "https://github.com/itallocortez/Concordo"
         LANGUAGES CXX)
 
 # Incluir informações para depuração no executável
