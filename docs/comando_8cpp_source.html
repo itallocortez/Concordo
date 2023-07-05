@@ -145,53 +145,59 @@ $(document).ready(function(){initNavTree('comando_8cpp_source.html',''); initRes
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="stringliteral">&quot;remove-server&quot;</span>, </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="stringliteral">&quot;enter-server&quot;</span> , </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="stringliteral">&quot;leave-server&quot;</span>, </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="stringliteral">&quot;list-participants&quot;</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  };</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keywordflow">return</span> strings.count(this-&gt;<a class="code hl_variable" href="class_comando.html#a0ee9649188f4bbde38587ee2cf81ea50">comando</a>) &gt; 0;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_comando.html#ae1b759493b2c7315efc3d5ec7c61e1ef">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_comando.html#ae1b759493b2c7315efc3d5ec7c61e1ef">Comando::ler</a>(<span class="keywordtype">void</span>) </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  std::string entrada; <span class="comment">// String que armazena a entrada do usuário</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="comment">// Loop enquanto não digitar uma entrada válida.</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keywordflow">do</span> {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// Pega a entrada digitada pelo usuário</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">//std::cout &lt;&lt; &quot;Digite o comando: &quot; &lt;&lt; std::endl;</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    std::getline(std::cin, entrada);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="stringliteral">&quot;list-participants&quot;</span>,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="stringliteral">&quot;list-channels&quot;</span>,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="stringliteral">&quot;create-channel&quot;</span>,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="stringliteral">&quot;enter-channel&quot;</span>,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="stringliteral">&quot;leave-channel&quot;</span>,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="stringliteral">&quot;send-message&quot;</span>,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="stringliteral">&quot;list-messages&quot;</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  };</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="keywordflow">return</span> strings.count(this-&gt;<a class="code hl_variable" href="class_comando.html#a0ee9649188f4bbde38587ee2cf81ea50">comando</a>) &gt; 0;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_comando.html#ae1b759493b2c7315efc3d5ec7c61e1ef">   71</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_comando.html#ae1b759493b2c7315efc3d5ec7c61e1ef">Comando::ler</a>(<span class="keywordtype">void</span>) </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  std::string entrada; <span class="comment">// String que armazena a entrada do usuário</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// Se a entrada não for nula</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">if</span> (!entrada.empty()) {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <span class="comment">// Como os argumentos são separados por espaços, seta isso como delimitador</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>      <span class="keywordtype">char</span> delimitador = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      <span class="comment">// Usa a função splitString() para separar a string em várias partes.</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      std::vector &lt; std::string &gt; substrings = <a class="code hl_function" href="class_comando.html#ad76de2f24a7a08a036016a0cb85a6d7f">splitString</a>(entrada, delimitador);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      <span class="comment">// Seta o comando como a primeira parte encontrada</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      this-&gt;<a class="code hl_variable" href="class_comando.html#a0ee9649188f4bbde38587ee2cf81ea50">comando</a> = substrings[0];</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="comment">// Loop enquanto não digitar uma entrada válida.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="comment">// Pega a entrada digitada pelo usuário</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">//std::cout &lt;&lt; &quot;Digite o comando: &quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::getline(std::cin, entrada);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// Se a entrada não for nula</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">if</span> (!entrada.empty()) {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      <span class="comment">// Como os argumentos são separados por espaços, seta isso como delimitador</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      <span class="keywordtype">char</span> delimitador = <span class="charliteral">&#39; &#39;</span>;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      <span class="comment">// Remove possíveis argumentos de comandos anteriores.</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      this-&gt;<a class="code hl_variable" href="class_comando.html#aad5e4127db6acc8abda42c9e84961c38">argumentos</a>.clear();</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      <span class="comment">// Se existirem argumentos no comando</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      <span class="keywordflow">if</span> (substrings.size() &gt; 1) {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="comment">// Adiciona cada argumento na lista de argumentos do comando.</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; substrings.size(); i++) {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>          this-&gt;<a class="code hl_variable" href="class_comando.html#aad5e4127db6acc8abda42c9e84961c38">argumentos</a>.push_back(substrings[i]);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      <span class="comment">// Pega o número de argumentos a partir da lista</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      this-&gt;<a class="code hl_variable" href="class_comando.html#a2dadeb234d17ff625043a475f26894e8">numeroArgumentos</a> = this-&gt;<a class="code hl_variable" href="class_comando.html#aad5e4127db6acc8abda42c9e84961c38">argumentos</a>.size();</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      <span class="keywordflow">break</span>; <span class="comment">// Sai do loop já que uma entrada válida foi fornecida.</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      <span class="comment">// Usa a função splitString() para separar a string em várias partes.</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      std::vector &lt; std::string &gt; substrings = <a class="code hl_function" href="class_comando.html#ad76de2f24a7a08a036016a0cb85a6d7f">splitString</a>(entrada, delimitador);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      <span class="comment">// Seta o comando como a primeira parte encontrada</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      this-&gt;<a class="code hl_variable" href="class_comando.html#a0ee9649188f4bbde38587ee2cf81ea50">comando</a> = substrings[0];</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      <span class="comment">// Remove possíveis argumentos de comandos anteriores.</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      this-&gt;<a class="code hl_variable" href="class_comando.html#aad5e4127db6acc8abda42c9e84961c38">argumentos</a>.clear();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      <span class="comment">// Se existirem argumentos no comando</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      <span class="keywordflow">if</span> (substrings.size() &gt; 1) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="comment">// Adiciona cada argumento na lista de argumentos do comando.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; substrings.size(); i++) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>          this-&gt;<a class="code hl_variable" href="class_comando.html#aad5e4127db6acc8abda42c9e84961c38">argumentos</a>.push_back(substrings[i]);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      }</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">//std::cout &lt;&lt; &quot;Entrada nula. Digite novamente.&quot; &lt;&lt; std::endl;</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  } <span class="keywordflow">while</span> (<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>      <span class="comment">// Pega o número de argumentos a partir da lista</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>      this-&gt;<a class="code hl_variable" href="class_comando.html#a2dadeb234d17ff625043a475f26894e8">numeroArgumentos</a> = this-&gt;<a class="code hl_variable" href="class_comando.html#aad5e4127db6acc8abda42c9e84961c38">argumentos</a>.size();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      <span class="keywordflow">break</span>; <span class="comment">// Sai do loop já que uma entrada válida foi fornecida.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">//std::cout &lt;&lt; &quot;Entrada nula. Digite novamente.&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  } <span class="keywordflow">while</span> (<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
 <div class="ttc" id="aclass_comando_html_a0ee9649188f4bbde38587ee2cf81ea50"><div class="ttname"><a href="class_comando.html#a0ee9649188f4bbde38587ee2cf81ea50">Comando::comando</a></div><div class="ttdeci">std::string comando</div><div class="ttdef"><b>Definição</b> <a href="comando_8hpp_source.html#l00026">comando.hpp:26</a></div></div>
 <div class="ttc" id="aclass_comando_html_a20bd753eeaec5c60b298a198ee8478da"><div class="ttname"><a href="class_comando.html#a20bd753eeaec5c60b298a198ee8478da">Comando::existe</a></div><div class="ttdeci">bool existe(void)</div><div class="ttdoc">Verifica se o comando existe.</div><div class="ttdef"><b>Definição</b> <a href="comando_8cpp_source.html#l00045">comando.cpp:45</a></div></div>
 <div class="ttc" id="aclass_comando_html_a2dadeb234d17ff625043a475f26894e8"><div class="ttname"><a href="class_comando.html#a2dadeb234d17ff625043a475f26894e8">Comando::numeroArgumentos</a></div><div class="ttdeci">int numeroArgumentos</div><div class="ttdef"><b>Definição</b> <a href="comando_8hpp_source.html#l00028">comando.hpp:28</a></div></div>
@@ -201,7 +207,7 @@ $(document).ready(function(){initNavTree('comando_8cpp_source.html',''); initRes
 <div class="ttc" id="aclass_comando_html_aad5e4127db6acc8abda42c9e84961c38"><div class="ttname"><a href="class_comando.html#aad5e4127db6acc8abda42c9e84961c38">Comando::argumentos</a></div><div class="ttdeci">std::vector&lt; std::string &gt; argumentos</div><div class="ttdef"><b>Definição</b> <a href="comando_8hpp_source.html#l00027">comando.hpp:27</a></div></div>
 <div class="ttc" id="aclass_comando_html_abca90a9f77bb7f530a754bd4efa76f27"><div class="ttname"><a href="class_comando.html#abca90a9f77bb7f530a754bd4efa76f27">Comando::getComando</a></div><div class="ttdeci">std::string getComando(void)</div><div class="ttdoc">Retorna o comando. (Primeiro argumento na linha de comando)</div><div class="ttdef"><b>Definição</b> <a href="comando_8cpp_source.html#l00030">comando.cpp:30</a></div></div>
 <div class="ttc" id="aclass_comando_html_ad76de2f24a7a08a036016a0cb85a6d7f"><div class="ttname"><a href="class_comando.html#ad76de2f24a7a08a036016a0cb85a6d7f">Comando::splitString</a></div><div class="ttdeci">std::vector&lt; std::string &gt; splitString(std::string str, char delimiter)</div><div class="ttdoc">Divide uma string em subtrings usando um delimitador.</div><div class="ttdef"><b>Definição</b> <a href="comando_8cpp_source.html#l00016">comando.cpp:16</a></div></div>
-<div class="ttc" id="aclass_comando_html_ae1b759493b2c7315efc3d5ec7c61e1ef"><div class="ttname"><a href="class_comando.html#ae1b759493b2c7315efc3d5ec7c61e1ef">Comando::ler</a></div><div class="ttdeci">void ler(void)</div><div class="ttdoc">Lê o comando digitado pelo usuário.</div><div class="ttdef"><b>Definição</b> <a href="comando_8cpp_source.html#l00065">comando.cpp:65</a></div></div>
+<div class="ttc" id="aclass_comando_html_ae1b759493b2c7315efc3d5ec7c61e1ef"><div class="ttname"><a href="class_comando.html#ae1b759493b2c7315efc3d5ec7c61e1ef">Comando::ler</a></div><div class="ttdeci">void ler(void)</div><div class="ttdoc">Lê o comando digitado pelo usuário.</div><div class="ttdef"><b>Definição</b> <a href="comando_8cpp_source.html#l00071">comando.cpp:71</a></div></div>
 <div class="ttc" id="acomando_8hpp_html"><div class="ttname"><a href="comando_8hpp.html">comando.hpp</a></div><div class="ttdoc">Este arquivo contém as declarações da classe Comando.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

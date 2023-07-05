@@ -205,6 +205,52 @@ Lista de Comandos</h2>
 <li>Precisa estar dentro de um servidor.</li>
 </ul>
 </code></li>
+<li><p class="startli"><code>### <code>create-channel &lt;nome&gt; &lt;tipo&gt;</code> Cria um canal no servidor atual.</p><ul>
+<li>Precisa estar dentro de um servidor.</li>
+<li>Somente o dono do servidor pode criar canais.</li>
+<li>Existem dois tipos de canais: <code>TEXTO</code> e <code>VOZ</code>.</li>
+</ul>
+<p></code></p>
+<p class="startli"><code> Exemplo de uso: </p><div class="fragment"><div class="line">create-channel chat-1 texto</div>
+<div class="line">create-channel callzinha-1 voz</div>
+</div><!-- fragment --><p></code></p>
+</li>
+<li><p class="startli"><code>### <code>enter-channel &lt;nome&gt;</code> Entra em um canal do servidor.</p><ul>
+<li>Precisa estar dentro de um servidor.</li>
+</ul>
+<p></code></p>
+<p class="startli"><code> Exemplo de uso: </p><div class="fragment"><div class="line">enter-channel chat-1</div>
+<div class="line">enter-channel callzinha-1</div>
+</div><!-- fragment --><p></code></p>
+</li>
+<li><code>### <code>leave-channel</code> Sai do canal atual.<ul>
+<li>Precisa estar dentro de um canal.</li>
+</ul>
+</code></li>
+<li><code>### <code>list-channels</code> Lista o nome dos canais do servidor atual.<ul>
+<li>Precisa estar dentro de um servidor.</li>
+</ul>
+</code></li>
+<li><p class="startli"><code>### <code>send-message &lt;mensagem&gt;</code> Envia uma mensagem no canal atual.</p><ul>
+<li>Precisa estar dentro de um canal.</li>
+</ul>
+<p></code></p>
+<p class="startli"><code> Exemplo de uso: </p><div class="fragment"><div class="line">send-message Ei, gent</div>
+<div class="line">send-message Um apartamento em nova parnamirim é barato?</div>
+<div class="line">send-message to pensando em me mudar pra lá</div>
+</div><!-- fragment --><p></code></p>
+</li>
+<li><p class="startli"><code>### <code>list-messages</code> Visualiza as mensagens do canal atual.</p><ul>
+<li>Precisa estar dentro de um canal.</li>
+</ul>
+<p></code></p>
+<p class="startli"><code> Exemplo de Saída: </p><div class="fragment"><div class="line">Itallo Cortez &lt;05/07/2023 - 01:18:26&gt;: Ei, gent</div>
+<div class="line">Itallo Cortez &lt;05/07/2023 - 01:18:26&gt;: Um apartamento em nova parnamirim é barato?</div>
+<div class="line">Itallo Cortez &lt;05/07/2023 - 01:18:26&gt;: to pensando em me mudar pra lá</div>
+<div class="line">Francisco Gabriel &lt;05/07/2023 - 01:18:26&gt;: Cara</div>
+<div class="line">Francisco Gabriel &lt;05/07/2023 - 01:18:26&gt;: Conheco uns condominios baratinhos por lá</div>
+</div><!-- fragment --><p></code></p>
+</li>
 </ul>
 <p><code></code></p>
 <h1><a class="anchor" id="autotoc_md10"></a>

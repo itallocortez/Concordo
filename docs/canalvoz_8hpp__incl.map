@@ -1,10 +1,19 @@
 <map id="include/canalvoz.hpp" name="include/canalvoz.hpp">
-<area shape="rect" id="Node000001" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="32,5,173,32"/>
-<area shape="rect" id="Node000002" href="$canal_8hpp.html" title="Este arquivo contém as declarações da classe Canal." alt="" coords="5,80,83,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,34,65,70,61,67,90,31"/>
-<area shape="rect" id="Node000004" href="$mensagem_8hpp.html" title="Este arquivo contém as declarações da classe Mensagem." alt="" coords="106,80,217,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="115,31,144,67,140,70,111,34"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="76,155,129,181"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="56,106,86,142,81,145,52,109"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="153,109,124,145,120,142,149,106"/>
+<area shape="rect" id="Node000001" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="152,5,294,32"/>
+<area shape="rect" id="Node000002" href="$canal_8hpp.html" title="Este arquivo contém as declarações da classe Canal." alt="" coords="135,80,212,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,34,192,69,188,66,212,31"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="237,80,308,107"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="234,31,258,66,253,69,229,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="104,304,158,331"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="188,105,212,133,237,171,246,192,251,214,250,236,242,257,229,275,211,289,173,307,171,303,208,284,225,271,238,255,245,235,246,215,241,194,232,174,208,136,184,109"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="173,229,228,256"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="182,106,197,154,203,214,198,215,192,155,177,108"/>
+<area shape="rect" id="Node000005" href="$usuario_8hpp.html" title="Este arquivo contém as declarações da classe Usuario." alt="" coords="5,229,94,256"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="136,108,97,126,78,140,64,156,52,185,50,215,45,214,47,184,59,153,75,136,94,122,133,103"/>
+<area shape="rect" id="Node000006" href="$mensagem_8hpp.html" title="Este arquivo contém as declarações da classe Mensagem." alt="" coords="73,155,183,181"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="168,109,146,144,141,141,163,106"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="65,255,108,292,104,296,62,259"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="131,182,133,289,128,289,126,182"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="143,180,179,217,176,221,139,184"/>
+<area shape="poly" id="edge9_Node000006_Node000005" title=" " alt="" coords="116,184,75,221,72,217,113,180"/>
 </map>

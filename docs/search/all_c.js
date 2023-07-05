@@ -8,9 +8,12 @@ var searchData=
   ['servidores_5',['servidores',['../class_sistema.html#a9d821ae19a14a73af36cdf6794afab43',1,'Sistema']]],
   ['servidorpelonome_6',['servidorPeloNome',['../class_sistema.html#a9f1ff9eb1719d79bd827755e14df0111',1,'Sistema']]],
   ['setcodigoconvite_7',['setCodigoConvite',['../class_servidor.html#ae2ddfd916313301db4c26ece2031ec3c',1,'Servidor']]],
-  ['setdescricao_8',['setDescricao',['../class_servidor.html#a4a232f83c626f7afcd98f1aeed5986f5',1,'Servidor']]],
-  ['sistema_9',['Sistema',['../class_sistema.html',1,'Sistema'],['../class_sistema.html#a815b07845ef6b03247b239333fe75e28',1,'Sistema::Sistema()']]],
-  ['sistema_2ecpp_10',['sistema.cpp',['../sistema_8cpp.html',1,'']]],
-  ['sistema_2ehpp_11',['sistema.hpp',['../sistema_8hpp.html',1,'']]],
-  ['splitstring_12',['splitString',['../class_comando.html#ad76de2f24a7a08a036016a0cb85a6d7f',1,'Comando']]]
+  ['setconteudo_8',['setConteudo',['../class_mensagem.html#ae8a86e2df0d2d8367234d094177a7e48',1,'Mensagem']]],
+  ['setdatahora_9',['setDataHora',['../class_mensagem.html#ac57206db81b34217b77d3249325de59b',1,'Mensagem']]],
+  ['setdescricao_10',['setDescricao',['../class_servidor.html#a4a232f83c626f7afcd98f1aeed5986f5',1,'Servidor']]],
+  ['setidenviou_11',['setIdEnviou',['../class_mensagem.html#aa403c6f910aa89890ff9ffaef12efe51',1,'Mensagem']]],
+  ['sistema_12',['Sistema',['../class_sistema.html',1,'Sistema'],['../class_sistema.html#a815b07845ef6b03247b239333fe75e28',1,'Sistema::Sistema()']]],
+  ['sistema_2ecpp_13',['sistema.cpp',['../sistema_8cpp.html',1,'']]],
+  ['sistema_2ehpp_14',['sistema.hpp',['../sistema_8hpp.html',1,'']]],
+  ['splitstring_15',['splitString',['../class_comando.html#ad76de2f24a7a08a036016a0cb85a6d7f',1,'Comando']]]
 ];

@@ -96,10 +96,15 @@ $(document).ready(function(){initNavTree('class_canal_texto.html',''); initResiz
 
 <p>Esta é a lista de todos os membros de <a class="el" href="class_canal_texto.html">CanalTexto</a>, incluindo os membros herdados.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_canal.html#a903e160b4b73d3339ca9b60ebcd2aa95">Canal</a>()</td><td class="entry"><a class="el" href="class_canal.html">Canal</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_canal_texto.html#ae2b63bebfe0367db3f20b1abf08f35c7">CanalTexto</a>()</td><td class="entry"><a class="el" href="class_canal_texto.html">CanalTexto</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_canal.html#a4e4aee7d89bbe9560c725fe4d799676f">Canal</a>(std::string nome)</td><td class="entry"><a class="el" href="class_canal.html">Canal</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_canal_texto.html#ad97a161f2ed2257a6aee4a7edacbd4ad">CanalTexto</a>(std::string nome)</td><td class="entry"><a class="el" href="class_canal_texto.html">CanalTexto</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_canal_texto.html#aa39e27e0f10a76baf9a8bfe1bba71264">enviarMensagem</a>(Mensagem mensagem) override</td><td class="entry"><a class="el" href="class_canal_texto.html">CanalTexto</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_canal.html#a04ed845ff5fea38f4e5e5e63ab3858e3">getNome</a>()</td><td class="entry"><a class="el" href="class_canal.html">Canal</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_canal_texto.html#ad403ad039ad7a00cd8c10fe90d5095db">getTipo</a>() override</td><td class="entry"><a class="el" href="class_canal_texto.html">CanalTexto</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_canal_texto.html#a88a4a6a8e5b34955d9a5269e8f72faae">listarMensagens</a>(std::vector&lt; Usuario * &gt; *usuarios) override</td><td class="entry"><a class="el" href="class_canal_texto.html">CanalTexto</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_canal_texto.html#affb8d63a2557ecdb20f8bde47a0f26b9">mensagens</a></td><td class="entry"><a class="el" href="class_canal_texto.html">CanalTexto</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_canal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a></td><td class="entry"><a class="el" href="class_canal.html">Canal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_canal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a></td><td class="entry"><a class="el" href="class_canal.html">Canal</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_canal.html#afc8e6940d40c2c8a8fd7dfa3c5b9c06a">~Canal</a>()=default</td><td class="entry"><a class="el" href="class_canal.html">Canal</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

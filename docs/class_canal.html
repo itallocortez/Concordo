@@ -92,9 +92,9 @@ $(document).ready(function(){initNavTree('class_canal.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Membros Públicos</a> &#124;
-<a href="#pri-attribs">Atributos Privados</a> &#124;
+<a href="#pro-attribs">Atributos Protegidos</a> &#124;
 <a href="class_canal-members.html">Lista de todos os Membros</a>  </div>
-  <div class="headertitle"><div class="title">Referência da Classe Canal</div></div>
+  <div class="headertitle"><div class="title">Referência da Classe Canal<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -108,31 +108,47 @@ Diagrama de hierarquia da classe Canal:</div>
 <div class="center"><img src="class_canal__inherit__graph.png" border="0" usemap="#a_canal_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_canal_inherit__map" id="a_canal_inherit__map">
 <area shape="rect" title="Classe que armazena as informações de um canal." alt="" coords="73,5,128,32"/>
-<area shape="rect" href="class_canal_texto.html" title="Sub&#45;Classe de Canal para canal de texto." alt="" coords="5,80,92,107"/>
+<area shape="rect" href="class_canal_texto.html" title="Sub Classe de Canal para canal de texto." alt="" coords="5,80,92,107"/>
 <area shape="poly" title=" " alt="" coords="85,46,60,81,55,78,81,43"/>
-<area shape="rect" href="class_canal_voz.html" title="Sub&#45;Classe de Canal para canal de voz." alt="" coords="115,80,193,107"/>
+<area shape="rect" href="class_canal_voz.html" title="Sub Classe de Canal para canal de voz." alt="" coords="115,80,193,107"/>
 <area shape="poly" title=" " alt="" coords="120,42,147,78,143,81,116,46"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a903e160b4b73d3339ca9b60ebcd2aa95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#a903e160b4b73d3339ca9b60ebcd2aa95">Canal</a> ()</td></tr>
-<tr class="separator:a903e160b4b73d3339ca9b60ebcd2aa95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e4aee7d89bbe9560c725fe4d799676f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#a4e4aee7d89bbe9560c725fe4d799676f">Canal</a> (std::string <a class="el" href="class_canal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a>)</td></tr>
+<tr class="memdesc:a4e4aee7d89bbe9560c725fe4d799676f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a>.  <br /></td></tr>
+<tr class="separator:a4e4aee7d89bbe9560c725fe4d799676f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8e6940d40c2c8a8fd7dfa3c5b9c06a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#afc8e6940d40c2c8a8fd7dfa3c5b9c06a">~Canal</a> ()=default</td></tr>
+<tr class="memdesc:afc8e6940d40c2c8a8fd7dfa3c5b9c06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual do <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a>.  <br /></td></tr>
+<tr class="separator:afc8e6940d40c2c8a8fd7dfa3c5b9c06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ed845ff5fea38f4e5e5e63ab3858e3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#a04ed845ff5fea38f4e5e5e63ab3858e3">getNome</a> ()</td></tr>
+<tr class="memdesc:a04ed845ff5fea38f4e5e5e63ab3858e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome do canal.  <br /></td></tr>
+<tr class="separator:a04ed845ff5fea38f4e5e5e63ab3858e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8dc7da4e67a3577f13bb66fd993e8c"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#aaa8dc7da4e67a3577f13bb66fd993e8c">getTipo</a> ()=0</td></tr>
+<tr class="memdesc:aaa8dc7da4e67a3577f13bb66fd993e8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o tipo do canal.  <br /></td></tr>
+<tr class="separator:aaa8dc7da4e67a3577f13bb66fd993e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1b6372ea4bbc5b735043f7ad68db0d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#aac1b6372ea4bbc5b735043f7ad68db0d">enviarMensagem</a> (<a class="el" href="class_mensagem.html">Mensagem</a> mensagem)=0</td></tr>
+<tr class="memdesc:aac1b6372ea4bbc5b735043f7ad68db0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia uma mensagem para o canal.  <br /></td></tr>
+<tr class="separator:aac1b6372ea4bbc5b735043f7ad68db0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a835b8ca72a0d149c74bad2acb5fff6ef"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#a835b8ca72a0d149c74bad2acb5fff6ef">listarMensagens</a> (std::vector&lt; <a class="el" href="class_usuario.html">Usuario</a> * &gt; *usuarios)=0</td></tr>
+<tr class="memdesc:a835b8ca72a0d149c74bad2acb5fff6ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista as mensagens do canal.  <br /></td></tr>
+<tr class="separator:a835b8ca72a0d149c74bad2acb5fff6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Atributos Privados</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Atributos Protegidos</h2></td></tr>
 <tr class="memitem:ac5e6d80712597bacacd46c0d153c2644"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a></td></tr>
 <tr class="separator:ac5e6d80712597bacacd46c0d153c2644"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Classe que armazena as informações de um canal. </p>
-<p>A classe <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a> armazena as informações básicas de uma canal. </p>
+<p>A classe <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a> armazena as informações básicas de um canal. </p>
 
-<p class="definition">Definição na linha <a class="el" href="canal_8hpp_source.html#l00017">17</a> do arquivo <a class="el" href="canal_8hpp_source.html">canal.hpp</a>.</p>
+<p class="definition">Definição na linha <a class="el" href="canal_8hpp_source.html#l00021">21</a> do arquivo <a class="el" href="canal_8hpp_source.html">canal.hpp</a>.</p>
 </div><h2 class="groupheader">Construtores e Destrutores</h2>
-<a id="a903e160b4b73d3339ca9b60ebcd2aa95" name="a903e160b4b73d3339ca9b60ebcd2aa95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a903e160b4b73d3339ca9b60ebcd2aa95">&#9670;&#160;</a></span>Canal()</h2>
+<a id="a4e4aee7d89bbe9560c725fe4d799676f" name="a4e4aee7d89bbe9560c725fe4d799676f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e4aee7d89bbe9560c725fe4d799676f">&#9670;&#160;</a></span>Canal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,17 +156,183 @@ Atributos Privados</h2></td></tr>
         <tr>
           <td class="memname">Canal::Canal </td>
           <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>nome</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da classe <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>O nome do canal. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="canal_8cpp_source.html#l00011">11</a> do arquivo <a class="el" href="canal_8cpp_source.html">canal.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                        {</div>
+<div class="line"><span class="lineno">   12</span>  this-&gt;<a class="code hl_variable" href="class_canal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a> = <a class="code hl_variable" href="class_canal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a>;</div>
+<div class="line"><span class="lineno">   13</span>}</div>
+<div class="ttc" id="aclass_canal_html_ac5e6d80712597bacacd46c0d153c2644"><div class="ttname"><a href="class_canal.html#ac5e6d80712597bacacd46c0d153c2644">Canal::nome</a></div><div class="ttdeci">std::string nome</div><div class="ttdef"><b>Definição</b> <a href="canal_8hpp_source.html#l00023">canal.hpp:23</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afc8e6940d40c2c8a8fd7dfa3c5b9c06a" name="afc8e6940d40c2c8a8fd7dfa3c5b9c06a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc8e6940d40c2c8a8fd7dfa3c5b9c06a">&#9670;&#160;</a></span>~Canal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Canal::~Canal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destrutor virtual do <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a>. </p>
+<p>Para que as classes filhas sejam realmente deletadas. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="aac1b6372ea4bbc5b735043f7ad68db0d" name="aac1b6372ea4bbc5b735043f7ad68db0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1b6372ea4bbc5b735043f7ad68db0d">&#9670;&#160;</a></span>enviarMensagem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Canal::enviarMensagem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_mensagem.html">Mensagem</a>&#160;</td>
+          <td class="paramname"><em>mensagem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Envia uma mensagem para o canal. </p>
+<p>Essa função é sobrescrita nas classes derivadas. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mensagem</td><td>A mensagem a ser enviada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementado por <a class="el" href="class_canal_texto.html#aa39e27e0f10a76baf9a8bfe1bba71264">CanalTexto</a> e <a class="el" href="class_canal_voz.html#acabafe265b598311d195ada520e28c5a">CanalVoz</a>.</p>
+
+</div>
+</div>
+<a id="a04ed845ff5fea38f4e5e5e63ab3858e3" name="a04ed845ff5fea38f4e5e5e63ab3858e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04ed845ff5fea38f4e5e5e63ab3858e3">&#9670;&#160;</a></span>getNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Canal::getNome </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definição na linha <a class="el" href="canal_8cpp_source.html#l00009">9</a> do arquivo <a class="el" href="canal_8cpp_source.html">canal.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   10</span> {</div>
-<div class="line"><span class="lineno">   11</span> </div>
-<div class="line"><span class="lineno">   12</span> }</div>
+<p>Retorna o nome do canal. </p>
+<dl class="section return"><dt>Retorna</dt><dd>O nome do canal. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="canal_8cpp_source.html#l00015">15</a> do arquivo <a class="el" href="canal_8cpp_source.html">canal.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                      {</div>
+<div class="line"><span class="lineno">   16</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="class_canal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a>;</div>
+<div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="aaa8dc7da4e67a3577f13bb66fd993e8c" name="aaa8dc7da4e67a3577f13bb66fd993e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8dc7da4e67a3577f13bb66fd993e8c">&#9670;&#160;</a></span>getTipo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string Canal::getTipo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retorna o tipo do canal. </p>
+<p>Essa função é sobrescrita nas classes derivadas. </p><dl class="section return"><dt>Retorna</dt><dd>Retorna o tipo do canal: "TEXTO" se for um <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a> de Texto, "VOZ" se for um <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a> de Voz. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_canal_texto.html#ad403ad039ad7a00cd8c10fe90d5095db">CanalTexto</a> e <a class="el" href="class_canal_voz.html#abebae791a2bd07d6a258035b0bac3c15">CanalVoz</a>.</p>
+
+</div>
+</div>
+<a id="a835b8ca72a0d149c74bad2acb5fff6ef" name="a835b8ca72a0d149c74bad2acb5fff6ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a835b8ca72a0d149c74bad2acb5fff6ef">&#9670;&#160;</a></span>listarMensagens()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Canal::listarMensagens </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_usuario.html">Usuario</a> * &gt; *&#160;</td>
+          <td class="paramname"><em>usuarios</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista as mensagens do canal. </p>
+<p>Essa função é sobrescrita nas classes derivadas. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">usuarios</td><td>Um ponteiro para um vetor de ponteiros de usuários do servidor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementado por <a class="el" href="class_canal_texto.html#a88a4a6a8e5b34955d9a5269e8f72faae">CanalTexto</a> e <a class="el" href="class_canal_voz.html#a1513503320d6c8b10de8bea30444bbfc">CanalVoz</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Atributos</h2>
@@ -169,13 +351,13 @@ Atributos Privados</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Nome do canal. </p>
 
-<p class="definition">Definição na linha <a class="el" href="canal_8hpp_source.html#l00019">19</a> do arquivo <a class="el" href="canal_8hpp_source.html">canal.hpp</a>.</p>
+<p class="definition">Definição na linha <a class="el" href="canal_8hpp_source.html#l00023">23</a> do arquivo <a class="el" href="canal_8hpp_source.html">canal.hpp</a>.</p>
 
 </div>
 </div>

@@ -99,14 +99,27 @@ $(document).ready(function(){initNavTree('canal_8hpp.html',''); initResizable();
 <p>Este arquivo contém as declarações da classe <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a>.  
 <a href="#details">Mais...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="usuario_8hpp_source.html">usuario.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mensagem_8hpp_source.html">mensagem.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Gráfico de dependência de inclusões para canal.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="canal_8hpp__incl.png" border="0" usemap="#ainclude_2canal_8hpp" alt=""/></div>
 <map name="ainclude_2canal_8hpp" id="ainclude_2canal_8hpp">
-<area shape="rect" title="Este arquivo contém as declarações da classe Canal." alt="" coords="5,5,128,32"/>
-<area shape="rect" title=" " alt="" coords="40,80,93,107"/>
-<area shape="poly" title=" " alt="" coords="69,33,69,65,64,65,64,33"/>
+<area shape="rect" title="Este arquivo contém as declarações da classe Canal." alt="" coords="112,5,235,32"/>
+<area shape="rect" title=" " alt="" coords="104,229,158,256"/>
+<area shape="poly" title=" " alt="" coords="188,31,212,58,237,96,246,118,251,140,250,162,242,183,229,200,211,214,173,233,171,228,208,210,225,196,238,180,245,161,246,140,241,119,232,99,208,62,184,34"/>
+<area shape="rect" title=" " alt="" coords="173,155,228,181"/>
+<area shape="poly" title=" " alt="" coords="182,32,197,79,203,139,198,140,192,81,177,33"/>
+<area shape="rect" href="usuario_8hpp.html" title="Este arquivo contém as declarações da classe Usuario." alt="" coords="5,155,94,181"/>
+<area shape="poly" title=" " alt="" coords="131,35,94,53,77,66,64,81,52,110,50,140,45,140,47,109,59,79,74,62,91,49,128,30"/>
+<area shape="rect" href="mensagem_8hpp.html" title="Este arquivo contém as declarações da classe Mensagem." alt="" coords="73,80,183,107"/>
+<area shape="poly" title=" " alt="" coords="168,34,146,69,141,66,163,31"/>
+<area shape="poly" title=" " alt="" coords="65,180,108,217,104,221,62,184"/>
+<area shape="poly" title=" " alt="" coords="131,107,133,214,128,214,126,107"/>
+<area shape="poly" title=" " alt="" coords="143,105,179,142,176,146,139,109"/>
+<area shape="poly" title=" " alt="" coords="116,109,75,147,72,143,113,105"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -114,33 +127,37 @@ Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com
 <div class="dyncontent">
 <div class="center"><img src="canal_8hpp__dep__incl.png" border="0" usemap="#ainclude_2canal_8hppdep" alt=""/></div>
 <map name="ainclude_2canal_8hppdep" id="ainclude_2canal_8hppdep">
-<area shape="rect" title="Este arquivo contém as declarações da classe Canal." alt="" coords="299,5,421,32"/>
-<area shape="rect" href="canaltexto_8hpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalTexto." alt="" coords="5,80,157,107"/>
-<area shape="poly" title=" " alt="" coords="298,39,131,82,129,77,297,33"/>
-<area shape="rect" href="canalvoz_8hpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="181,80,322,107"/>
-<area shape="poly" title=" " alt="" coords="330,43,272,82,269,77,327,38"/>
-<area shape="rect" href="servidor_8hpp.html" title="Este arquivo contém as declarações da classe Servidor." alt="" coords="397,80,533,107"/>
-<area shape="poly" title=" " alt="" coords="391,38,448,77,445,82,388,43"/>
-<area shape="rect" href="sistema_8hpp.html" title="Este arquivo contém as declarações da classe Sistema." alt="" coords="342,229,479,256"/>
-<area shape="poly" title=" " alt="" coords="368,46,410,228,405,230,363,47"/>
-<area shape="rect" href="canal_8cpp.html" title="Este arquivo implementa as funções da classe Canal." alt="" coords="557,80,656,107"/>
-<area shape="poly" title=" " alt="" coords="417,34,564,77,562,82,416,39"/>
-<area shape="rect" href="canaltexto_8cpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalTexto." alt="" coords="17,155,145,181"/>
-<area shape="poly" title=" " alt="" coords="84,122,84,154,78,154,78,122"/>
-<area shape="rect" href="canalvoz_8cpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="193,155,311,181"/>
-<area shape="poly" title=" " alt="" coords="254,122,254,154,249,154,249,122"/>
-<area shape="rect" href="comando_8hpp.html" title="Este arquivo contém as declarações da classe Comando." alt="" coords="584,155,728,181"/>
-<area shape="poly" title=" " alt="" coords="513,110,623,152,621,157,511,115"/>
-<area shape="poly" title=" " alt="" coords="454,121,438,156,416,230,411,228,433,154,449,119"/>
-<area shape="rect" href="servidor_8cpp.html" title="Este arquivo implementa as funções da classe Servidor." alt="" coords="448,155,560,181"/>
-<area shape="poly" title=" " alt="" coords="481,119,499,153,495,156,476,121"/>
-<area shape="poly" title=" " alt="" coords="600,188,454,231,453,226,598,183"/>
-<area shape="rect" href="comando_8cpp.html" title="Este arquivo implementa as funções da classe Comando." alt="" coords="595,229,716,256"/>
-<area shape="poly" title=" " alt="" coords="658,196,658,229,653,229,653,196"/>
-<area shape="rect" href="main_8cpp.html" title="Este arquivo contém a função principal do programa." alt="" coords="298,304,395,331"/>
-<area shape="poly" title=" " alt="" coords="392,269,359,305,355,302,388,265"/>
-<area shape="rect" href="sistema_8cpp.html" title="Este arquivo implementa as funções da classe Sistema." alt="" coords="419,304,533,331"/>
-<area shape="poly" title=" " alt="" coords="433,265,466,302,462,305,429,269"/>
+<area shape="rect" title="Este arquivo contém as declarações da classe Canal." alt="" coords="275,5,397,32"/>
+<area shape="rect" href="canaltexto_8hpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalTexto." alt="" coords="126,80,277,107"/>
+<area shape="poly" title=" " alt="" coords="302,42,226,82,224,77,299,37"/>
+<area shape="rect" href="servidor_8hpp.html" title="Este arquivo contém as declarações da classe Servidor." alt="" coords="279,155,415,181"/>
+<area shape="poly" title=" " alt="" coords="341,47,349,154,343,154,335,47"/>
+<area shape="rect" href="sistema_8hpp.html" title="Este arquivo contém as declarações da classe Sistema." alt="" coords="49,304,186,331"/>
+<area shape="poly" title=" " alt="" coords="261,23,223,29,184,39,147,57,115,82,98,108,89,137,86,169,87,201,100,261,115,303,110,305,95,262,82,202,80,169,84,136,93,105,112,78,144,52,182,34,222,24,260,18"/>
+<area shape="rect" href="canalvoz_8hpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="374,80,515,107"/>
+<area shape="poly" title=" " alt="" coords="369,38,427,77,424,82,366,43"/>
+<area shape="rect" href="canal_8cpp.html" title="Este arquivo implementa as funções da classe Canal." alt="" coords="539,80,638,107"/>
+<area shape="poly" title=" " alt="" coords="394,34,545,77,543,82,393,39"/>
+<area shape="poly" title=" " alt="" coords="241,111,323,152,320,156,239,116"/>
+<area shape="poly" title=" " alt="" coords="159,116,135,133,117,156,105,195,104,237,109,275,116,303,111,304,104,276,99,237,100,194,112,153,131,130,155,112"/>
+<area shape="rect" href="canaltexto_8cpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalTexto." alt="" coords="127,155,255,181"/>
+<area shape="poly" title=" " alt="" coords="200,122,195,155,190,154,195,121"/>
+<area shape="rect" href="comando_8hpp.html" title="Este arquivo contém as declarações da classe Comando." alt="" coords="177,229,322,256"/>
+<area shape="poly" title=" " alt="" coords="320,193,268,231,265,227,317,188"/>
+<area shape="poly" title=" " alt="" coords="266,185,214,203,190,216,167,231,151,248,139,268,124,305,119,302,134,266,147,245,164,227,187,211,212,198,264,180"/>
+<area shape="rect" href="servidor_8cpp.html" title="Este arquivo implementa as funções da classe Servidor." alt="" coords="345,229,458,256"/>
+<area shape="poly" title=" " alt="" coords="367,192,394,227,390,231,363,195"/>
+<area shape="poly" title=" " alt="" coords="215,266,142,306,139,301,212,261"/>
+<area shape="rect" href="comando_8cpp.html" title="Este arquivo implementa as funções da classe Comando." alt="" coords="210,304,332,331"/>
+<area shape="poly" title=" " alt="" coords="260,270,270,303,265,304,255,271"/>
+<area shape="rect" href="main_8cpp.html" title="Este arquivo contém a função principal do programa." alt="" coords="5,379,102,405"/>
+<area shape="poly" title=" " alt="" coords="99,344,67,380,63,376,95,340"/>
+<area shape="rect" href="sistema_8cpp.html" title="Este arquivo implementa as funções da classe Sistema." alt="" coords="126,379,240,405"/>
+<area shape="poly" title=" " alt="" coords="141,340,174,376,170,380,137,344"/>
+<area shape="poly" title=" " alt="" coords="417,118,365,156,362,152,414,114"/>
+<area shape="poly" title=" " alt="" coords="461,119,475,150,486,186,487,224,482,242,471,258,365,279,187,308,186,303,364,274,468,254,477,239,481,223,481,187,470,151,457,121"/>
+<area shape="rect" href="canalvoz_8cpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="532,155,650,181"/>
+<area shape="poly" title=" " alt="" coords="484,111,566,152,564,156,481,116"/>
 </map>
 </div>
 </div>

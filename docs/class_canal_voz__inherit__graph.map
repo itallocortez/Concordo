@@ -1,5 +1,5 @@
 <map id="CanalVoz" name="CanalVoz">
-<area shape="rect" id="Node000001" title="Sub&#45;Classe de Canal para canal de voz." alt="" coords="5,80,83,107"/>
+<area shape="rect" id="Node000001" title="Sub Classe de Canal para canal de voz." alt="" coords="5,80,83,107"/>
 <area shape="rect" id="Node000002" href="$class_canal.html" title="Classe que armazena as informações de um canal." alt="" coords="17,5,71,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="47,47,47,80,41,80,41,47"/>
 </map>

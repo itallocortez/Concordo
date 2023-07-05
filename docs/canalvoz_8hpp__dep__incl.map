@@ -1,5 +1,21 @@
 <map id="include/canalvoz.hpp" name="include/canalvoz.hpp">
-<area shape="rect" id="Node000001" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="5,5,147,32"/>
-<area shape="rect" id="Node000002" href="$canalvoz_8cpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="17,80,135,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,47,79,80,73,80,73,47"/>
+<area shape="rect" id="Node000001" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="303,5,444,32"/>
+<area shape="rect" id="Node000002" href="$servidor_8hpp.html" title="Este arquivo contém as declarações da classe Servidor." alt="" coords="182,80,317,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="341,42,273,82,270,77,338,38"/>
+<area shape="rect" id="Node000004" href="$sistema_8hpp.html" title="Este arquivo contém as declarações da classe Sistema." alt="" coords="254,229,392,256"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="370,47,328,230,323,228,365,46"/>
+<area shape="rect" id="Node000009" href="$canalvoz_8cpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="410,80,529,107"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="403,39,455,77,451,82,400,43"/>
+<area shape="rect" id="Node000003" href="$comando_8hpp.html" title="Este arquivo contém as declarações da classe Comando." alt="" coords="5,155,150,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="207,115,109,156,107,152,205,110"/>
+<area shape="poly" id="edge7_Node000002_Node000004" title=" " alt="" coords="274,116,300,153,315,194,323,228,318,230,310,195,295,156,269,119"/>
+<area shape="rect" id="Node000008" href="$servidor_8cpp.html" title="Este arquivo implementa as funções da classe Servidor." alt="" coords="173,155,286,181"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="245,122,236,155,230,154,240,121"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="135,183,281,226,279,231,133,188"/>
+<area shape="rect" id="Node000007" href="$comando_8cpp.html" title="Este arquivo implementa as funções da classe Comando." alt="" coords="17,229,138,256"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="80,196,80,229,75,229,75,196"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title="Este arquivo contém a função principal do programa." alt="" coords="211,304,307,331"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="304,269,272,305,268,302,300,265"/>
+<area shape="rect" id="Node000006" href="$sistema_8cpp.html" title="Este arquivo implementa as funções da classe Sistema." alt="" coords="331,304,445,331"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="346,265,379,302,375,305,342,269"/>
 </map>

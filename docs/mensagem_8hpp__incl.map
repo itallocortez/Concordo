@@ -1,5 +1,10 @@
 <map id="include/mensagem.hpp" name="include/mensagem.hpp">
 <area shape="rect" id="Node000001" title="Este arquivo contém as declarações da classe Mensagem." alt="" coords="5,5,161,32"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="56,80,110,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,33,86,65,80,65,80,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="71,155,124,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,34,50,67,43,86,46,106,57,126,72,143,68,146,52,129,40,107,38,86,45,64,68,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="55,80,111,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="86,33,86,65,80,65,80,33"/>
+<area shape="rect" id="Node000004" href="$usuario_8hpp.html" title="Este arquivo contém as declarações da classe Usuario." alt="" coords="135,80,223,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="101,30,153,69,150,73,98,35"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="167,109,124,147,121,143,163,105"/>
 </map>
