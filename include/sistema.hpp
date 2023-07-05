@@ -44,6 +44,14 @@ class Sistema {
      */
     Sistema();
 
+
+    /**
+     * @brief Retorna a data atual como uma string.
+     * 
+     * Esta função retorna a data atual no formato de uma string.
+     *
+     * @return A data atual no formato "AAAA-MM-DD".
+     */
     std::string getDataAtual(void);
 
     /**

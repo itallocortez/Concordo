@@ -40,6 +40,9 @@ class Servidor {
     */
     Servidor(int usuarioDonoId, std::string nome);
 
+    /**
+    * @brief Destrutor da classe Servidor.
+    */
     ~Servidor();
 
     /**
@@ -125,10 +128,30 @@ class Servidor {
     */
     void addParticipante(int id);
 
+    /**
+    * @brief Adiciona um canal ao servidor.
+    * 
+    * Esta função adiciona um canal à lista de canais do servidor.
+    *
+    * @param c Um ponteiro para o canal a ser adicionado.
+    */
     void addCanal(Canal *c);
 
-    Canal* canalPeloNome(std::string);
+    /**
+    * @brief Retorna um canal pelo nome.
+    * 
+    * Esta função retorna um ponteiro para um canal com o nome especificado, se existir no servidor.
+    *
+    * @param nome O nome do canal a ser obtido.
+    * @return Um ponteiro para o canal, ou nullptr se o canal não existir.
+    */
+    Canal* canalPeloNome(std::string nome);
 
+    /**
+    * @brief Lista os canais do servidor.
+    * 
+    * Esta função lista os canais do servidor no console.
+    */
     void listarCanais();
 };
 

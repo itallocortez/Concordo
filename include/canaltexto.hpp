@@ -14,24 +14,41 @@
  */
 
 /**
- * @brief Sub-Classe de Canal para canal de texto.
+ * @brief Sub Classe de Canal para canal de texto.
  * 
  * A classe CanalTexto armazena as mensagens enviadas ao canal de texto.
  */
 class CanalTexto : public Canal {
   private:
-    std::vector <Mensagem> mensagens; /**< Lista de mensagens do canal de texto. */
+    std::vector<Mensagem> mensagens; /**< Lista de mensagens do canal de texto. */
+
   public:
-  	CanalTexto(std::string nome);
-
-    /*
-     * @brief Classe virtual de Canal. Retorna o Tipo do Canal
-     * @return TEXTO, para Canal de Texto
+    /**
+     * @brief Construtor da classe CanalTexto.
+     *
+     * @param nome O nome do canal de texto.
      */
-    std::string getTipo(void) override;
+    CanalTexto(std::string nome);
 
+    /**
+     * @brief Retorna o tipo do canal de texto.
+     *
+     * @return Retorna o tipo do canal de texto: "TEXTO".
+     */
+    std::string getTipo() override;
+
+    /**
+     * @brief Envia uma mensagem para o canal de texto.
+     *
+     * @param mensagem A mensagem a ser enviada.
+     */
     void enviarMensagem(Mensagem mensagem) override;
 
+    /**
+     * @brief Lista as mensagens do canal de texto.
+     *
+     * @param usuarios Um ponteiro para um vetor de ponteiros de usuários.
+     */
     void listarMensagens(std::vector<Usuario *> *usuarios) override;
 };
 

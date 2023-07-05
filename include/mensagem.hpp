@@ -20,22 +20,74 @@
  */
 class Mensagem {
   private:
-    std::string dataHora; /**< Data e hora que a mensagem foi enviada. */
-    int enviadaPor; /**< ID do usuário que enviou. */
+    std::string dataHora; /**< Data e hora em que a mensagem foi enviada. */
+    int enviadaPor; /**< ID do usuário que enviou a mensagem. */
     std::string conteudo; /**< Conteúdo da mensagem. */
+
   public:
+    /**
+     * @brief Construtor padrão da classe Mensagem.
+     */
     Mensagem();
+
+    /**
+     * @brief Construtor da classe Mensagem.
+     *
+     * @param enviadaPor O ID do usuário que enviou a mensagem.
+     * @param dataHora A data e hora em que a mensagem foi enviada.
+     * @param conteudo O conteúdo da mensagem.
+     */
     Mensagem(int enviadaPor, std::string dataHora, std::string conteudo);
 
-    std::string getDataHora(void);
+    /**
+     * @brief Retorna a data e hora da mensagem.
+     *
+     * @return A data e hora da mensagem.
+     */
+    std::string getDataHora();
+
+    /**
+     * @brief Define a data e hora da mensagem.
+     *
+     * @param dataHora A data e hora da mensagem.
+     */
     void setDataHora(std::string dataHora);
 
-    int getIdEnviou(void);
+    /**
+     * @brief Retorna o ID do usuário que enviou a mensagem.
+     *
+     * @return O ID do usuário que enviou a mensagem.
+     */
+    int getIdEnviou();
+
+    /**
+     * @brief Define o ID do usuário que enviou a mensagem.
+     *
+     * @param id O ID do usuário que enviou a mensagem.
+     */
     void setIdEnviou(int id);
 
+    /**
+     * @brief Retorna o nome do usuário que enviou a mensagem.
+     *
+     * @param id O ID do usuário.
+     * @param usuarios Um ponteiro para um vetor de ponteiros de usuários.
+     * @return O nome do usuário que enviou a mensagem.
+     */
     std::string getNomeEnviou(int id, std::vector<Usuario *> *usuarios);
 
-    std::string getConteudo(void);
+    /**
+     * @brief Retorna o conteúdo da mensagem.
+     *
+     * @return O conteúdo da mensagem.
+     */
+    std::string getConteudo();
+
+    /**
+     * @brief Define o conteúdo da mensagem.
+     *
+     * @param conteudo O conteúdo da mensagem.
+     */
     void setConteudo(std::string conteudo);
 };
 

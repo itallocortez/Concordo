@@ -12,24 +12,41 @@
  */
 
 /**
- * @brief Sub-Classe de Canal para canal de voz.
+ * @brief Sub Classe de Canal para canal de voz.
  * 
  * A classe CanalVoz armazena a última mensagem enviada ao canal de voz.
  */
 class CanalVoz : public Canal {
   private:
     Mensagem ultimaMensagem; /**< Última mensagem enviada. */
+
   public:
-  	CanalVoz(std::string nome);
-
-    /*
-     * @brief Classe virtual de Canal. Retorna o Tipo do Canal
-     * @return VOZ, para Canal de Texto
+    /**
+     * @brief Construtor da classe CanalVoz.
+     *
+     * @param nome O nome do canal de voz.
      */
-    std::string getTipo(void) override;
+    CanalVoz(std::string nome);
 
+    /**
+     * @brief Retorna o tipo do canal de voz.
+     *
+     * @return Retorna o tipo do canal de voz: "VOZ".
+     */
+    std::string getTipo() override;
+
+    /**
+     * @brief Envia uma mensagem para o canal de voz.
+     *
+     * @param mensagem A mensagem a ser enviada.
+     */
     void enviarMensagem(Mensagem mensagem) override;
 
+    /**
+     * @brief Lista as mensagens do canal de voz.
+     *
+     * @param usuarios Um ponteiro para um vetor de ponteiros de usuários.
+     */
     void listarMensagens(std::vector<Usuario *> *usuarios) override;
 };
 
