@@ -2,7 +2,8 @@
 #define CANAL_VOZ_H
 
 #include "canal.hpp"
-#include "mensagem.hpp"
+
+#include <iostream>
 
 /**
  * @file canalvoz.hpp
@@ -19,7 +20,17 @@ class CanalVoz : public Canal {
   private:
     Mensagem ultimaMensagem; /**< Última mensagem enviada. */
   public:
-  	CanalVoz();
+  	CanalVoz(std::string nome);
+
+    /*
+     * @brief Classe virtual de Canal. Retorna o Tipo do Canal
+     * @return VOZ, para Canal de Texto
+     */
+    std::string getTipo(void) override;
+
+    void enviarMensagem(Mensagem mensagem) override;
+
+    void listarMensagens(std::vector<Usuario *> *usuarios) override;
 };
 
 #endif

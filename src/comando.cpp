@@ -56,7 +56,13 @@ bool Comando::existe()
     "remove-server", 
     "enter-server" , 
     "leave-server", 
-    "list-participants"
+    "list-participants",
+    "list-channels",
+    "create-channel",
+    "enter-channel",
+    "leave-channel",
+    "send-message",
+    "list-messages"
   };
 
   return strings.count(this->comando) > 0;

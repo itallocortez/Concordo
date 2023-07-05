@@ -3,8 +3,11 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "canal.hpp"
+#include "canalvoz.hpp"
+#include "canaltexto.hpp"
 
 /**
  * @file servidor.hpp
@@ -36,6 +39,8 @@ class Servidor {
     * @param nome O nome do servidor.
     */
     Servidor(int usuarioDonoId, std::string nome);
+
+    ~Servidor();
 
     /**
     * @brief Retorna o nome do servidor.
@@ -119,6 +124,12 @@ class Servidor {
     * @param id O ID do usuário a ser adicionado.
     */
     void addParticipante(int id);
+
+    void addCanal(Canal *c);
+
+    Canal* canalPeloNome(std::string);
+
+    void listarCanais();
 };
 
 #endif

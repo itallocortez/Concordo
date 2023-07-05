@@ -13,6 +13,16 @@ Sistema::Sistema()
   
 }
 
+std::string Sistema::getDataAtual(void) {
+  auto currentTime = std::chrono::system_clock::now();
+  std::time_t time = std::chrono::system_clock::to_time_t(currentTime);
+  
+  std::stringstream ss;
+  ss << std::put_time(std::localtime(&time), "%d/%m/%Y - %H:%M:%S");
+  
+  return ss.str();
+}
+
 Usuario* Sistema::usuarioPeloId(int id) 
 {
   // Verifica cada usuário no <vector> de usuários
@@ -222,6 +232,9 @@ void Sistema::executarComando(void)
   
         // Seta que não está mais visualizando nenhum servidor.
         servidorAtual = nullptr;
+
+        // Seta que não está mais visualizando nenhum canal.
+        canalAtual = nullptr;
   
         // Pega o usuário atualmente logado
         Usuario *tempUsuario = usuarioPeloId(usuarioAtualId);
@@ -552,6 +565,7 @@ void Sistema::executarComando(void)
     // Comando para Sair do Servidor, deconecta o usuário do servidor
     // Precisa estar logado e conectado a um servidor
     if(comandoAtual.getComando() == "leave-server") {
+      // Verifica se está logado
       if(estaLogado) {
         // Se estiver visualizando um servidor
         if(servidorAtual != nullptr) {
@@ -559,6 +573,9 @@ void Sistema::executarComando(void)
           
           // Seta que não está mais visualizando nenhum servidor.
           servidorAtual = nullptr;
+
+          // Seta que não está mais visualizando nenhum canal.
+          canalAtual = nullptr;
         } else {
            std::cout << "Você não está visualizando nenhum servidor." << std::endl;
         }
@@ -568,9 +585,10 @@ void Sistema::executarComando(void)
       }
     }
   
-    // Comando para Listar Pessoas em Um Servidor
+    // Comando para Listar Participantes do Servidor
     // Preciso estar logado e conectado a um servidor
     if(comandoAtual.getComando() == "list-participants") {
+      // Verifica se está logado
       if(estaLogado) {
         // Se estiver visualizando um servidor
         if(servidorAtual != nullptr) {
@@ -581,6 +599,206 @@ void Sistema::executarComando(void)
           }
         } else {
            std::cout << "Você não está visualizando nenhum servidor." << std::endl;
+        }
+      } else {
+        // Se estiver deslogado
+        std::cout << "Precisa estar logado para usar esse comando!" << std::endl;
+      }
+    }
+
+    // ==== COMANDOS CANAIS ====
+
+    // Comando para Listar Canais do servidor
+    // Precisa estar logado e visualizando um servidor
+    if(comandoAtual.getComando() == "list-channels") {
+      // Verifica se está logado
+      if(estaLogado) {
+        // Se estiver visualizando um servidor
+        if(servidorAtual != nullptr) {
+          servidorAtual->listarCanais();
+        } else {
+          std::cout << "Entre em um servidor para listar seus canais." << std::endl;
+        }
+      } else {
+        // Se estiver deslogado
+        std::cout << "Precisa estar logado para usar esse comando!" << std::endl;
+      }
+    }
+
+    // Comando para Criar um Canal no servidor
+    // Precisa estar logado pra usar
+    if(comandoAtual.getComando() == "create-channel") {
+      // Verifica se está logado
+      if(estaLogado) {
+        // Se estiver visualizando um servidor
+        if(servidorAtual != nullptr) {
+          if(servidorAtual->getDonoId() == usuarioAtualId) {
+            // Verifica se forneceu os dois argumentos {nome, tipo}
+            if(comandoAtual.getNumeroArgumentos() == 2) {
+              // Pega o nome do canal
+              std:string nome = comandoAtual.getArgumento(0);
+  
+              // Se não existir um canal com esse nome
+              if(servidorAtual->canalPeloNome(nome) == nullptr) {
+                // Pega o tipo do canal
+                string tipo = comandoAtual.getArgumento(1);
+  
+                if(tipo == "texto") {
+                  // Cria um objeto do tipo CanalTexto com esse nome
+                  CanalTexto *c = new CanalTexto(nome);
+                  
+                  // Adiciona esse canal no servidor
+                  servidorAtual->addCanal(c);
+  
+                  // Mostra mensagem que criou com sucesso
+                  std::cout << "Canal de texto '" << nome << "' criado" << std::endl;
+                } else if(tipo == "voz") {
+                  // Cria um objeto do tipo CanalTexto com esse nome
+                  CanalVoz *c = new CanalVoz(nome);
+                  
+                  // Adiciona esse canal no servidor
+                  servidorAtual->addCanal(c);
+  
+                  // Mostra mensagem que criou com sucesso
+                  std::cout << "Canal de voz '" << nome << "' criado" << std::endl;
+                } else {
+                  std::cout << "Esse tipo de canal não existe. Use: {Texto} ou {Voz}." << std::endl;
+                }
+              } else {
+                std::cout << "O canal '" << nome << "' já existe!" << std::endl;
+              }
+            } else {
+              std::cout << "Use: create-channel <nome_sem_espaços> <tipo>" << std::endl;
+            }
+          } else {
+            std::cout << "Somente o dono do servidor pode criar canais." << std::endl;
+          }
+        } else {
+          std::cout << "Você não está visualizando nenhum servidor." << std::endl;
+        }
+      } else {
+        // Se estiver deslogado
+        std::cout << "Precisa estar logado para usar esse comando!" << std::endl;
+      }    
+    }
+
+    // Função para Entrar em Canal do servidor
+    // Precisa estar logado e visualizando um servidor
+    if(comandoAtual.getComando() == "enter-channel") {
+      // Verifica se está logado
+      if(estaLogado) {
+        // Verifica se está visualizando um servidor
+        if(servidorAtual != nullptr) {
+          // Se não estiver visualizando nenhum canal
+          if(canalAtual == nullptr) {
+            // Se o usuário forneceu o {nome} do canal
+            if(comandoAtual.getNumeroArgumentos() == 1) {
+              // Pega o nome do canal
+              std::string nome = comandoAtual.getArgumento(0);
+  
+              // Procura o ponteiro do Canal no servidor atual
+              Canal *c = servidorAtual->canalPeloNome(nome);
+  
+              // Se o canal existir
+              if(c != nullptr) {
+                // Seta o canalAtual que o usuário está visualizando
+                canalAtual = c;
+  
+                std::cout << "Entrou no canal '" << nome << "'" << std::endl;
+              } else {
+                std::cout << "O canal '" << nome << "' não existe." << std::endl;
+              }
+            } else {
+              std::cout << "Use: enter-channel <nome_do_servidor>" << std::endl;
+            }
+          } else {
+            std::cout << "Você já está visualizando um canal." << std::endl;
+          }
+        } else {
+          std::cout << "Você não está visualizando nenhum servidor." << std::endl;
+        }
+      } else {
+        // Se estiver deslogado
+        std::cout << "Precisa estar logado para usar esse comando!" << std::endl;
+      }
+    }
+
+    // Comando para Sair Do Canal do servidor
+    if(comandoAtual.getComando() == "leave-channel") {
+      if(estaLogado) {
+        if(servidorAtual != nullptr) {
+          if(canalAtual != nullptr) {
+            std::cout << "Saindo do canal '" << canalAtual->getNome() << "'" << std::endl;
+
+            // Seta que não está mais visualizando nenhum canal.
+            canalAtual = nullptr;
+          } else {
+            std::cout << "Não está em um canal." << std::endl;
+          }
+        } else {
+          std::cout << "Você não está visualizando nenhum servidor." << std::endl;
+        }
+      } else {
+        // Se estiver deslogado
+        std::cout << "Precisa estar logado para usar esse comando!" << std::endl;
+      }
+    }
+
+    // MENSAGENS EM CANAL
+    
+    // Comando para Enviar Mensagem no canal
+    // Precisa estar em um servidor e dentro de um canal
+    if(comandoAtual.getComando() == "send-message") {
+      if(estaLogado) {
+        if(servidorAtual != nullptr) {
+          if(canalAtual != nullptr) {
+            // Se de fato digitou a mensagem
+            if(comandoAtual.getNumeroArgumentos() > 0) {
+              // Vamos pegar a mensagem agora
+              string mensagem;
+              
+              // Junta os argumentos para formar o nome completo
+              for (int i = 0; i < comandoAtual.getNumeroArgumentos(); i++) {
+                mensagem += comandoAtual.getArgumento(i);
+      
+                // Adiciona um espaço entre as partes do nome
+                if (i < comandoAtual.getNumeroArgumentos() - 1) {
+                  mensagem += " ";
+                }
+              }
+
+              // Cria um objeto do tipo Mensagem com os dados do usuário atual
+              Mensagem m = Mensagem(usuarioAtualId, getDataAtual(), mensagem);
+
+              // Envia a mensagem para o canalAtual
+              canalAtual->enviarMensagem(m);
+            } else {
+              std::cout << "Use: send-message <mensagem>" << std::endl;
+            }
+          } else {
+            std::cout << "Não está em um canal." << std::endl;
+          }
+        } else {
+          std::cout << "Você não está visualizando nenhum servidor." << std::endl;
+        }
+      } else {
+        // Se estiver deslogado
+        std::cout << "Precisa estar logado para usar esse comando!" << std::endl;
+      }
+    }
+
+    // Comando para Listar as Mensagens do Canal
+    // Precisa estar em um servidor e dentro de um canal
+    if(comandoAtual.getComando() == "list-messages") {
+      if(estaLogado) {
+        if(servidorAtual != nullptr) {
+          if(canalAtual != nullptr) {
+            canalAtual->listarMensagens(&usuarios); 
+          } else {
+            std::cout << "Não está em um canal." << std::endl;
+          }
+        } else {
+          std::cout << "Você não está visualizando nenhum servidor." << std::endl;
         }
       } else {
         // Se estiver deslogado

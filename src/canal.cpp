@@ -6,7 +6,12 @@
  * @brief Este arquivo implementa as funções da classe Canal.
  */
 
- Canal::Canal()
- {
+using namespace std;
 
- }
+Canal::Canal(string nome) {
+  this->nome = nome;
+}
+
+string Canal::getNome() {
+  return this->nome;
+}

@@ -2,11 +2,15 @@
 #define SISTEMA_H
 
 #include <vector>
+#include <chrono>
+#include <iomanip>
 #include <algorithm>
 
 #include "usuario.hpp"
 #include "servidor.hpp"
 #include "canal.hpp"
+#include "canalvoz.hpp"
+#include "canaltexto.hpp"
 #include "comando.hpp"
 
 /**
@@ -28,7 +32,7 @@ class Sistema {
     std::vector<Servidor *> servidores; /**< Lista de servidores contidos no sistema. */
     int usuarioAtualId; /**< ID do usuário atualmente logado no sistema. */
     Servidor *servidorAtual = nullptr; /**< Servidor que o usuário está acessando atualmente. */
-    Canal canalAtual; /**< Canal que o usuário está acessando atualmente. */
+    Canal *canalAtual = nullptr; /**< Canal que o usuário está acessando atualmente. */
     Comando comandoAtual; /**< Comando que o sistema está processando atualmente. */
     bool estaLogado = false; /**< Se existe um usuário logado no sistema. */
     bool precisaFechar = false; /**< Se o programa deve ser fechado. */
@@ -39,6 +43,8 @@ class Sistema {
      * Inicializa um objeto Sistema com valores padrão.
      */
     Sistema();
+
+    std::string getDataAtual(void);
 
     /**
     * @brief Retorna um ponteiro para o objeto Usuario correspondente ao ID fornecido.

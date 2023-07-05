@@ -16,6 +16,16 @@ Servidor::Servidor(int usuarioDonoId, string nome)
   this->codigoConvite = "";
 }
 
+Servidor::~Servidor(){
+  // Desaloca qualquer memória dinâmica dos <vector's>
+  for (Canal *canal : canais) {
+    delete canal;
+  }
+
+  // Apaga os elementos dos <vector's>
+  canais.clear();
+}
+
 std::string Servidor::getNome(void) 
 {
   return this->nome;
@@ -72,5 +82,43 @@ void Servidor::addParticipante(int id)
   if(!participa(id)) {
     // Adiicona ele na lista de participantes
     participantesIDs.push_back(id);
+  }
+}
+
+void Servidor::addCanal(Canal *c) {
+  canais.push_back(c);
+}
+
+Canal* Servidor::canalPeloNome(string nome) {
+  // Verifica cada canal no <vector> de canais
+  for (Canal *c : canais) {
+    // Se encontrar um com ID informado
+    if(c->getNome() == nome) {
+      // Ele já participa, então não precisa adicionar
+      return c;
+    }
+  }
+  return nullptr;
+}
+
+void Servidor::listarCanais(){
+  std::cout << "#canais de texto" << std::endl;
+
+  // Para cada canal no <vector> de canais
+  for (Canal *c : canais) {
+    // Verifica se é do tipo TEXTO e imprime
+    if(c->getTipo() == "TEXTO") {
+      std::cout << c->getNome() << std::endl;
+    }
+  }
+
+  std::cout << "#canais de voz" << std::endl;
+  
+  // Para cada canal no <vector> de canais
+  for (Canal *c : canais) {
+    // Verifica se é do tipo TEXTO e imprime
+    if(c->getTipo() == "VOZ") {
+      std::cout << c->getNome() << std::endl;
+    }
   }
 }
