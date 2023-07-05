@@ -160,6 +160,60 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   Lista o nome dos participantes do servidor atual.
   - Precisa estar logado para utilizar.
   - Precisa estar dentro de um servidor.
+ 
+- ### `create-channel <nome> <tipo>`
+  Cria um canal no servidor atual.
+  - Precisa estar dentro de um servidor.
+  - Somente o dono do servidor pode criar canais.
+  - Existem dois tipos de canais: `TEXTO` e `VOZ`.
+
+  Exemplo de uso:
+  ```
+  create-channel chat-1 texto
+  create-channel callzinha-1 voz
+  ```
+
+- ### `enter-channel <nome>`
+  Entra em um canal do servidor.
+  - Precisa estar dentro de um servidor.
+
+  Exemplo de uso:
+  ```
+  enter-channel chat-1
+  enter-channel callzinha-1
+  ```
+
+- ### `leave-channel`
+  Sai do canal atual.
+  - Precisa estar dentro de um canal.
+ 
+- ### `list-channels`
+  Lista o nome dos canais do servidor atual.
+  - Precisa estar dentro de um servidor.
+ 
+- ### `send-message <mensagem>`
+  Envia uma mensagem no canal atual.
+  - Precisa estar dentro de um canal.
+
+  Exemplo de uso:
+  ```
+  send-message Ei, gent
+  send-message Um apartamento em nova parnamirim é barato?
+  send-message to pensando em me mudar pra lá
+  ```
+
+- ### `list-messages`
+  Visualiza as mensagens do canal atual.
+  - Precisa estar dentro de um canal.
+ 
+  Exemplo de Saída:
+  ```
+  Itallo Cortez <05/07/2023 - 01:18:26>: Ei, gent
+  Itallo Cortez <05/07/2023 - 01:18:26>: Um apartamento em nova parnamirim é barato?
+  Itallo Cortez <05/07/2023 - 01:18:26>: to pensando em me mudar pra lá
+  Francisco Gabriel <05/07/2023 - 01:18:26>: Cara
+  Francisco Gabriel <05/07/2023 - 01:18:26>: Conheco uns condominios baratinhos por lá
+  ```
   
 ## Limitações
 ### Precisa melhorar
