@@ -5,8 +5,8 @@ create-server moradias
 enter-server moradias
 create-channel chat-1 texto
 create-channel chat-2 texto
-create-channel chat-3 voz
-create-channel chat-4 voz
+create-channel callzinha-3 voz
+create-channel callzinha-4 voz
 list-channels
 enter-channel chat-1
 leave-channel
@@ -21,6 +21,10 @@ enter-server moradias
 enter-channel chat-1
 send-message Cara
 send-message Conheco uns condominios baratinhos por lá
+list-messages
+leave-channel
+enter-channel callzinha-4
+send-message alo
 list-messages
 disconnect
 quit
