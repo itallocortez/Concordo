@@ -246,6 +246,7 @@ Os servidores, canais e mensagens seguem o mesmo processo, mas suas informaçõe
 ### Precisa melhorar
  - Tenho certeza que existe uma forma melhor de armazenar os comandos sem ter que usar uma sequencia de ifs.
  - Pode existir uma forma melhor para verificar se o comando existe ou não.
+ - O programa é sensível a alterações **manuais** nos arquivos de dados.
 
 ## Autor
 - Itallo Muriel Moreira Cortez
