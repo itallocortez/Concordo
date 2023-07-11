@@ -13,6 +13,21 @@ Sistema::Sistema()
   
 }
 
+Sistema::~Sistema()
+{
+  // Desaloca qualquer memória dinâmica dos <vector's>
+  for (Usuario *usuario : usuarios) {
+    delete usuario;
+  }
+  for (Servidor *servidor : servidores) {
+    delete servidor;
+  }
+  
+  // Apaga os elementos dos <vector's>
+  usuarios.clear();
+  servidores.clear();
+}
+
 std::string Sistema::getDataAtual(void) {
   auto currentTime = std::chrono::system_clock::now();
   std::time_t time = std::chrono::system_clock::to_time_t(currentTime);
@@ -100,20 +115,7 @@ void Sistema::executarComando(void)
     // == Comando para Sair do Sistema ==
     // Pode ser executado a qualquer momento.
     if(comandoAtual.getComando() == "quit") {
-      // Mensagem para o usuário
       cout << "Saindo..." << endl;
-  
-      // Desaloca qualquer memória dinâmica dos <vector's>
-      for (Usuario *usuario : usuarios) {
-          delete usuario;
-      }
-      for (Servidor *servidor : servidores) {
-          delete servidor;
-      }
-  
-      // Apaga os elementos dos <vector's>
-      usuarios.clear();
-      servidores.clear();
   
       // Avisa ao sistema para fechar após esse comando.
       precisaFechar = true;
@@ -653,7 +655,7 @@ void Sistema::executarComando(void)
                   // Mostra mensagem que criou com sucesso
                   std::cout << "Canal de texto '" << nome << "' criado" << std::endl;
                 } else if(tipo == "voz") {
-                  // Cria um objeto do tipo CanalTexto com esse nome
+                  // Cria um objeto do tipo CanalVoz com esse nome
                   CanalVoz *c = new CanalVoz(nome);
                   
                   // Adiciona esse canal no servidor
@@ -809,4 +811,330 @@ void Sistema::executarComando(void)
     // Se o comando digitado não existir
     std::cout << "Comando inválido. Tente novamente." << std::endl;
   }
+}
+
+void Sistema::salvarUsuarios(void) 
+{
+  // Cria um objeto do tipo OFSTREAM, pois posso sobrescrever o arquivo.
+  ofstream arquivo("../usuarios.txt");
+
+  // Se o arquivo usuarios.txt não existir
+  if (!arquivo.is_open()) {
+    // Cria um arquivo no caminho padrão
+    arquivo.open("../usuarios.txt", ios::app);
+
+    // Se não der certo mesmo assim
+    if (!arquivo.is_open()) {
+      cout << "ERRO: Não foi possível salvar os usuários." << endl;
+      return;
+    }
+  }
+
+  // Primeira linha - Quantidade de Usuários
+  arquivo << usuarios.size() << std::endl;
+
+  // Para cada usuário do sistema
+  for (Usuario *usuario : usuarios) {
+    arquivo << usuario->getId() << std::endl;
+    arquivo << usuario->getNome() << std::endl;
+    arquivo << usuario->getEmail() << std::endl;
+    arquivo << usuario->getSenha() << std::endl;
+  }
+
+  arquivo.close();
+}
+
+void Sistema::salvarServidores(void) 
+{
+  // Cria um objeto do tipo OFSTREAM, pois posso sobrescrever o arquivo.
+  ofstream arquivo("../servidores.txt");
+
+  // Se o arquivo servidores.txt não existir
+  if (!arquivo.is_open()) {
+    // Cria um arquivo no caminho padrão
+    arquivo.open("../servidores.txt", ios::app);
+
+    // Se não der certo mesmo assim
+    if (!arquivo.is_open()) {
+      cout << "ERRO: Não foi possível salvar os servidores." << endl;
+      return;
+    }
+  }
+
+  // Primeira linha - Quantidade de Servidores
+  arquivo << servidores.size() << std::endl;
+
+  // Para cada servidor do sistema
+  for (Servidor *servidor : servidores) {
+    arquivo << servidor->getDonoId() << std::endl;
+    arquivo << servidor->getNome() << std::endl;
+    arquivo << servidor->getDescricao() << std::endl;
+    arquivo << servidor->getCodigoConvite() << std::endl;
+    arquivo << servidor->getParticipantes().size() << std::endl;
+
+    // Para cada participante do servidor
+    for(int participante_id : servidor->getParticipantes()) {
+      // Imprime seu ID
+      arquivo << participante_id << std::endl;
+    }
+
+    // Informa a quantidade de canais do servidor
+    arquivo << servidor->getCanais().size() << std::endl;
+
+    // Para cada canal do servidor
+    for(Canal *canal : servidor->getCanais()) {
+      arquivo << canal->getNome() << std::endl;
+      arquivo << canal->getTipo() << std::endl;
+      arquivo << canal->getMensagens().size() << std::endl;
+
+      // Para cada mensagem no canal
+      for(Mensagem m : canal->getMensagens()) {
+        arquivo << m.getIdEnviou() << std::endl;
+        arquivo << m.getDataHora() << std::endl;
+        arquivo << m.getConteudo() << std::endl;
+      }
+    }
+  }
+
+  arquivo.close();
+}
+
+void Sistema::salvar(void) {
+  salvarUsuarios();
+  salvarServidores();
+}
+
+void Sistema::carregarUsuarios(void) 
+{
+  // Apaga os dados antigos do sistema antes da leitura
+  
+  // Desaloca qualquer memória dinâmica dos <vector's>
+  for (Usuario *usuario : usuarios) {
+    delete usuario;
+  }
+
+  // Apaga os elementos dos <vector's>
+  usuarios.clear();
+
+  // Cria um objeto do tipo IFSTREAM, pois vou ler o arquivo.
+  ifstream arquivo("../usuarios.txt");
+ 
+  string linha; // Linha atual que está sendo lida.
+  int numeroUsuarios = 0; // Número de usuários no arquivo
+  
+  // Se conseguir abrir o arquivo
+  if(arquivo.is_open()) {
+    getline(arquivo, linha); // Lê a primeira linha - Número de Usuários
+    numeroUsuarios = stoi(linha); // Converte para inteiro e salva.
+
+    // VARIÁVEIS TEMPORÁRIAS PARA LEITURA
+    int id = 0;
+    string nome;
+    string email;
+    string senha;
+
+    // Para cada usuário cadastrado no arquivo
+    for (int i = 0; i < numeroUsuarios; i++) {
+      // ID do usuário  
+      getline(arquivo, linha);
+      id = stoi(linha);
+
+      // Nome do usuário 
+      getline(arquivo, linha);
+      nome = linha;
+
+      // E-mail do usuário 
+      getline(arquivo, linha);
+      email = linha;
+
+      // Senha do usuário 
+      getline(arquivo, linha);
+      senha = linha;
+    
+      // Cria o objeto do tipo usuário
+      Usuario* u = new Usuario(id, email, senha, nome);
+    
+      // Coloca ele na lista de usuários do sistema.
+      usuarios.push_back(u);
+    }
+    
+    arquivo.close();
+  }
+}
+
+void Sistema::carregarServidores(void) 
+{
+  // Precisa guardar o nome do servidor e do canal atual.
+  // para procurar o novo ponteiro deles no final.
+  string servidorAtualNome;
+  string canalAtualNome;
+
+  // Se estiver visualizando um Servidor
+  if(servidorAtual != nullptr) {
+    // Armazena o nome do servidor para procurar o ponteiro depois.
+    servidorAtualNome = servidorAtual->getNome();
+  }
+  
+  // Se estiver visualizando um Canal
+  if(canalAtual != nullptr) {
+    // Armazena o nome do canal para procurar o ponteiro depois.
+    canalAtualNome = canalAtual->getNome();
+  }
+
+  // Apaga os dados antigos do sistema antes da leitura
+
+  // Desaloca qualquer memória dinâmica dos <vector's>
+  for (Servidor *servidor : servidores) {
+    delete servidor;
+  }
+
+  // Apaga os elementos dos <vector's>
+  servidores.clear();
+  
+  // Cria um objeto do tipo IFSTREAM, pois vou ler o arquivo.
+  ifstream arquivo("../servidores.txt");
+
+  string linha; // Linha atual que está sendo lida.
+  int numeroServidores = 0; // Número de servidores no arquivo
+
+  // Se conseguir abrir o arquivo
+  if(arquivo.is_open()) {
+    getline(arquivo, linha); // Lê a primeira linha - Número de Servidores
+    numeroServidores = stoi(linha); // Converte para inteiro e salva.
+
+    // VARIÁVEIS TEMPORÁRIAS PARA LEITURA
+    int usuarioDonoId = 0;
+    int numeroParticipantes = 0;
+    int numeroMensagens = 0;
+    int numeroCanais = 0;
+    string nomeServidor;
+    string nomeCanal;
+    string tipoCanal;
+    
+    
+    // Para cada servidor cadastrado no arquivo
+    for (int i = 0; i < numeroServidores; i++) {
+      // ID do dono do servidor
+      getline(arquivo, linha);
+      usuarioDonoId = stoi(linha); // Converte para inteiro e salva.
+
+      // Nome do servidor
+      getline(arquivo, linha);
+      nomeServidor = linha;
+
+      // Cria o objeto do tipo Servidor
+      Servidor *s = new Servidor(usuarioDonoId, nomeServidor);
+
+      // Descrição do servidor
+      getline(arquivo, linha);
+      s->setDescricao(linha);
+
+      // Código de convite
+      getline(arquivo, linha);
+      s->setCodigoConvite(linha);
+
+      // Número de participantes
+      getline(arquivo, linha);
+      numeroParticipantes = stoi(linha); // Converte para inteiro e salva.
+
+      // Cadastra os IDs dos participantes
+      for (int i = 0; i < numeroParticipantes; i++) {
+        getline(arquivo, linha);
+        s->addParticipante(stoi(linha));
+      }
+
+      // Número de canais
+      getline(arquivo, linha);
+      numeroCanais = stoi(linha); // Converte para inteiro e salva.
+
+      // Para cada canal presente no arquivo.
+      for (int i = 0; i < numeroCanais; i++) {
+        // Nome do canal
+        getline(arquivo, linha);
+        nomeCanal = linha;
+
+        // Tipo do canal
+        getline(arquivo, linha);
+        tipoCanal = linha;
+
+        if(tipoCanal == "TEXTO") {
+          // Cria um objeto do tipo CanalTexto com esse nome
+          CanalTexto *c = new CanalTexto(nomeCanal);
+
+          // Número de mensagens
+          getline(arquivo, linha);
+          numeroMensagens = stoi(linha); // Converte para inteiro e salva.
+
+          // Para cada mensagem cadastrada no arquivo.
+          for (int i = 0; i < numeroMensagens; i++) {
+            // Cria objeto do tipo mensagem
+            Mensagem m;
+
+            // ID de quem enviou
+            getline(arquivo, linha);
+            m.setIdEnviou(stoi(linha));
+
+            // Data e Hora que foi enviada
+            getline(arquivo, linha);
+            m.setDataHora(linha);
+
+            // Conteúdo da mensagem
+            getline(arquivo, linha);
+            m.setConteudo(linha);
+
+            c->enviarMensagem(m);
+          }
+
+          // Adiciona esse canal no servidor
+          s->addCanal(c);
+        } else if(tipoCanal == "VOZ") {
+          // Cria um objeto do tipo CanalVoz com esse nome
+          CanalVoz *c = new CanalVoz(nomeCanal);
+
+          // Número de mensagens
+          getline(arquivo, linha);
+          numeroMensagens = stoi(linha); // Converte para inteiro e salva.
+
+          if(numeroMensagens != 0) {
+            // Cria objeto do tipo mensagem
+            Mensagem m;
+
+            // ID de quem enviou
+            getline(arquivo, linha);
+            m.setIdEnviou(stoi(linha));
+
+            // Data e Hora que foi enviada
+            getline(arquivo, linha);
+            m.setDataHora(linha);
+
+            // Conteúdo da mensagem
+            getline(arquivo, linha);
+            m.setConteudo(linha);
+
+            c->enviarMensagem(m);
+          }
+          
+          // Adiciona esse canal no servidor
+          s->addCanal(c);
+        }
+      }
+
+      // Coloca o servidor na lista de servidores do sistema.
+      servidores.push_back(s);
+    }
+
+    if(servidorAtual != nullptr) {
+      servidorAtual = servidorPeloNome(servidorAtualNome);
+    }
+    if(canalAtual != nullptr) {
+      canalAtual = servidorAtual->canalPeloNome(canalAtualNome);
+    }
+
+    arquivo.close();
+  }
+}
+
+void Sistema::carregar(void) {
+  carregarUsuarios();
+  carregarServidores();
 }

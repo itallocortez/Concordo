@@ -1,6 +1,8 @@
 #ifndef SISTEMA_H
 #define SISTEMA_H
 
+#include <iostream>
+#include <fstream>
 #include <vector>
 #include <chrono>
 #include <iomanip>
@@ -36,6 +38,12 @@ class Sistema {
     Comando comandoAtual; /**< Comando que o sistema está processando atualmente. */
     bool estaLogado = false; /**< Se existe um usuário logado no sistema. */
     bool precisaFechar = false; /**< Se o programa deve ser fechado. */
+
+    void carregarUsuarios(void);
+    void carregarServidores(void);
+
+    void salvarUsuarios(void);
+    void salvarServidores(void);
   public:
     /**
      * @brief Construtor padrão da classe Sistema.
@@ -43,6 +51,8 @@ class Sistema {
      * Inicializa um objeto Sistema com valores padrão.
      */
     Sistema();
+
+    ~Sistema();
 
 
     /**
@@ -122,6 +132,9 @@ class Sistema {
     * @see Comando::executar()
     */
     void executarComando(void);
+
+    void carregar();
+    void salvar();
 };
 
 #endif

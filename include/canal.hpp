@@ -52,6 +52,8 @@ class Canal {
      */
     virtual std::string getTipo() = 0;
 
+    virtual std::vector<Mensagem> getMensagens() = 0;
+
     /**
      * @brief Envia uma mensagem para o canal.
      *

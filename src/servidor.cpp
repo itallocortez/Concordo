@@ -51,6 +51,11 @@ std::vector<int> Servidor::getParticipantes(void)
   return this->participantesIDs;
 }
 
+std::vector<Canal *> Servidor::getCanais(void)
+{
+  return this->canais;
+}
+
 void Servidor::setCodigoConvite(string codigo) 
 {
   this->codigoConvite = codigo;

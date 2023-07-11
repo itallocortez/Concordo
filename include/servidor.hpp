@@ -91,6 +91,8 @@ class Servidor {
     */
     std::vector<int> getParticipantes(void);
 
+    std::vector<Canal *> getCanais(void);
+
     /**
     * @brief Define o código de convite do servidor.
     * 

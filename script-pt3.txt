@@ -1,0 +1,32 @@
+create-user italloucortez@gmail.com itallohehe123 Itallo Cortez
+create-user franciscogabriel@gmail.com 54321 Francisco Gabriel
+login italloucortez@gmail.com itallohehe123
+create-server moradias
+set-server-desc moradias Descrição Servidor de Moradias
+set-server-invite-code moradias M0R4D14
+enter-server moradias
+create-channel chat-1 texto
+create-channel chat-2 texto
+create-channel callzinha-3 voz
+create-channel callzinha-4 voz
+list-channels
+enter-channel chat-1
+leave-channel
+enter-channel chat-1
+send-message Ei, gent
+send-message Um apartamento em nova parnamirim é barato?
+send-message to pensando em me mudar pra lá
+leave-channel
+disconnect
+login franciscogabriel@gmail.com 54321
+enter-server moradias M0R4D14
+enter-channel chat-1
+send-message Cara
+send-message Conheco uns condominios baratinhos por lá
+list-messages
+leave-channel
+enter-channel callzinha-4
+send-message alo
+list-messages
+disconnect
+quit

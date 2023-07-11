@@ -16,6 +16,10 @@ string CanalTexto::getTipo(void) {
   return "TEXTO";
 }
 
+std::vector<Mensagem> CanalTexto::getMensagens(void) {
+  return this->mensagens;
+}
+
 void CanalTexto::enviarMensagem(Mensagem mensagem) {
   mensagens.push_back(mensagem);
 }

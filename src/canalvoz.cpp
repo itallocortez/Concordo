@@ -16,6 +16,16 @@ std::string CanalVoz::getTipo(void) {
   return "VOZ";
 }
 
+std::vector<Mensagem> CanalVoz::getMensagens(void) {
+  std::vector<Mensagem> mensagens;
+
+  if(ultimaMensagem.getConteudo() != "") {
+    mensagens.push_back(ultimaMensagem);
+  }
+
+  return mensagens;
+}
+
 void CanalVoz::enviarMensagem(Mensagem mensagem) {
   this->ultimaMensagem = mensagem;
 }

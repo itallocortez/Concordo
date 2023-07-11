@@ -35,6 +35,8 @@ class CanalVoz : public Canal {
      */
     std::string getTipo() override;
 
+    std::vector<Mensagem> getMensagens() override;
+
     /**
      * @brief Envia uma mensagem para o canal de voz.
      *
