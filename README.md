@@ -214,7 +214,34 @@ A seguir, estão listados todos os comandos disponíveis para interagir com o si
   Francisco Gabriel <05/07/2023 - 01:18:26>: Cara
   Francisco Gabriel <05/07/2023 - 01:18:26>: Conheco uns condominios baratinhos por lá
   ```
+
+## Persistência dos dados em disco
+Os dados do sistema são preservados mesmo após o encerramento do programa, permitindo a recuperação das informações armazenadas em execuções futuras.
+
+Por exemplo:
+- Quando você cria um novo usuário:
+  ```
+  create-user itallocortez@gmail.com 12345 Itallo Cortez
+  ```
   
+  Os dados desse usuário são armazenados no arquivo ```usuarios.txt```
+
+ - Vamos supor que você fechou o programa depois disso:
+   ```
+   quit
+   ```
+  
+- Quando você reabre o programa, o sistema recupera os dados desse arquivo, permitindo que reconheça a existência do usuário.
+  ```
+  login itallocortez@gmail.com 12345
+  ```
+  
+  Saída:
+  ```
+  Logado como italloucortez@gmail.com
+  ```
+Os servidores, canais e mensagens seguem o mesmo processo, mas suas informações são armazenadas no arquivo ```servidores.txt```
+
 ## Limitações
 ### Precisa melhorar
  - Tenho certeza que existe uma forma melhor de armazenar os comandos sem ter que usar uma sequencia de ifs.
