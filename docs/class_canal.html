@@ -108,7 +108,7 @@ Diagrama de hierarquia da classe Canal:</div>
 <div class="center"><img src="class_canal__inherit__graph.png" border="0" usemap="#a_canal_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_canal_inherit__map" id="a_canal_inherit__map">
 <area shape="rect" title="Classe que armazena as informações de um canal." alt="" coords="73,5,128,32"/>
-<area shape="rect" href="class_canal_texto.html" title="Sub Classe de Canal para canal de texto." alt="" coords="5,80,92,107"/>
+<area shape="rect" href="class_canal_texto.html" title="Sub Classe de Canal para canais de texto." alt="" coords="5,80,92,107"/>
 <area shape="poly" title=" " alt="" coords="85,46,60,81,55,78,81,43"/>
 <area shape="rect" href="class_canal_voz.html" title="Sub Classe de Canal para canal de voz." alt="" coords="115,80,193,107"/>
 <area shape="poly" title=" " alt="" coords="120,42,147,78,143,81,116,46"/>
@@ -129,6 +129,9 @@ Membros Públicos</h2></td></tr>
 <tr class="memitem:aaa8dc7da4e67a3577f13bb66fd993e8c"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#aaa8dc7da4e67a3577f13bb66fd993e8c">getTipo</a> ()=0</td></tr>
 <tr class="memdesc:aaa8dc7da4e67a3577f13bb66fd993e8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o tipo do canal.  <br /></td></tr>
 <tr class="separator:aaa8dc7da4e67a3577f13bb66fd993e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a069dc5d17ba67e6254509350ba7c4712"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="class_mensagem.html">Mensagem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#a069dc5d17ba67e6254509350ba7c4712">getMensagens</a> ()=0</td></tr>
+<tr class="memdesc:a069dc5d17ba67e6254509350ba7c4712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna as mensagens contidas no canal.  <br /></td></tr>
+<tr class="separator:a069dc5d17ba67e6254509350ba7c4712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac1b6372ea4bbc5b735043f7ad68db0d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canal.html#aac1b6372ea4bbc5b735043f7ad68db0d">enviarMensagem</a> (<a class="el" href="class_mensagem.html">Mensagem</a> mensagem)=0</td></tr>
 <tr class="memdesc:aac1b6372ea4bbc5b735043f7ad68db0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia uma mensagem para o canal.  <br /></td></tr>
 <tr class="separator:aac1b6372ea4bbc5b735043f7ad68db0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,7 +206,7 @@ Atributos Protegidos</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destrutor virtual do <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a>. </p>
-<p>Para que as classes filhas sejam realmente deletadas. </p>
+<p>Setado para que as classes filhas sejam realmente deletadas. </p>
 
 </div>
 </div>
@@ -233,14 +236,46 @@ Atributos Protegidos</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Envia uma mensagem para o canal. </p>
-<p>Essa função é sobrescrita nas classes derivadas. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Essa função é sobrescrita nas classes derivadas, funcionando de forma diferente dependendo do seu tipo.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mensagem</td><td>A mensagem a ser enviada. </td></tr>
+    <tr><td class="paramname">mensagem</td><td>O objeto do tipo <a class="el" href="class_mensagem.html" title="Classe que armazena as informações de uma mensagem.">Mensagem</a> a ser enviado ao canal. </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implementado por <a class="el" href="class_canal_texto.html#aa39e27e0f10a76baf9a8bfe1bba71264">CanalTexto</a> e <a class="el" href="class_canal_voz.html#acabafe265b598311d195ada520e28c5a">CanalVoz</a>.</p>
+
+</div>
+</div>
+<a id="a069dc5d17ba67e6254509350ba7c4712" name="a069dc5d17ba67e6254509350ba7c4712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a069dc5d17ba67e6254509350ba7c4712">&#9670;&#160;</a></span>getMensagens()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; <a class="el" href="class_mensagem.html">Mensagem</a> &gt; Canal::getMensagens </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retorna as mensagens contidas no canal. </p>
+<p>Essa função é sobrescrita nas classes derivadas, funcionando de forma diferente dependendo do seu tipo.</p>
+<dl class="section return"><dt>Retorna</dt><dd>Um objeto &lt;vector&gt; do tipo <a class="el" href="class_mensagem.html" title="Classe que armazena as informações de uma mensagem.">Mensagem</a>, com as mensagens dentro. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_canal_texto.html#a3bdb37ae77517105f3ddb6482e7149d8">CanalTexto</a> e <a class="el" href="class_canal_voz.html#af70f8630c7f89b75fc8d48f5fa69da97">CanalVoz</a>.</p>
 
 </div>
 </div>
@@ -293,7 +328,8 @@ Atributos Protegidos</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retorna o tipo do canal. </p>
-<p>Essa função é sobrescrita nas classes derivadas. </p><dl class="section return"><dt>Retorna</dt><dd>Retorna o tipo do canal: "TEXTO" se for um <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a> de Texto, "VOZ" se for um <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a> de Voz. </dd></dl>
+<p>Essa função é sobrescrita nas classes derivadas, funcionando de forma diferente dependendo do seu tipo.</p>
+<dl class="section return"><dt>Retorna</dt><dd>O tipo do canal: "TEXTO" se for um <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a> de Texto. "VOZ" se for um <a class="el" href="class_canal.html" title="Classe que armazena as informações de um canal.">Canal</a> de Voz. </dd></dl>
 
 <p>Implementado por <a class="el" href="class_canal_texto.html#ad403ad039ad7a00cd8c10fe90d5095db">CanalTexto</a> e <a class="el" href="class_canal_voz.html#abebae791a2bd07d6a258035b0bac3c15">CanalVoz</a>.</p>
 
@@ -324,7 +360,9 @@ Atributos Protegidos</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Lista as mensagens do canal. </p>
-<p>Essa função é sobrescrita nas classes derivadas. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Essa função é sobrescrita nas classes derivadas, funcionando de forma diferente dependendo do seu tipo.</p>
+<p>Precisa do ponteiro dos usuários para obter o nome deles.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">usuarios</td><td>Um ponteiro para um vetor de ponteiros de usuários do servidor. </td></tr>
   </table>

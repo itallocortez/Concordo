@@ -8,7 +8,7 @@
 /**
  * @file canalvoz.hpp
  *
- * @brief Este arquivo contém as declarações da Sub-Classe CanalVoz.
+ * @brief Este arquivo contém as declarações da sub-classe CanalVoz.
  */
 
 /**
@@ -29,25 +29,32 @@ class CanalVoz : public Canal {
     CanalVoz(std::string nome);
 
     /**
-     * @brief Retorna o tipo do canal de voz.
+     * @brief Retorna o tipo do canal.
      *
-     * @return Retorna o tipo do canal de voz: "VOZ".
+     * @return "VOZ".
      */
     std::string getTipo() override;
 
+    /**
+     * @brief Retorna a mensagem contida no canal de voz.
+     *
+     * @return Um objeto <vector> do tipo Mensagem, com a mensagem dentro.
+     */
     std::vector<Mensagem> getMensagens() override;
 
     /**
      * @brief Envia uma mensagem para o canal de voz.
      *
-     * @param mensagem A mensagem a ser enviada.
+     * @param mensagem O objeto do tipo Mensagem a ser enviado ao canal.
      */
     void enviarMensagem(Mensagem mensagem) override;
 
     /**
      * @brief Lista as mensagens do canal de voz.
      *
-     * @param usuarios Um ponteiro para um vetor de ponteiros de usuários.
+     * Precisa do ponteiro dos usuários para obter o nome deles.
+     *
+     * @param usuarios Um ponteiro para um vetor de ponteiros de usuários do servidor.
      */
     void listarMensagens(std::vector<Usuario *> *usuarios) override;
 };

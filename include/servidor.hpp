@@ -91,6 +91,13 @@ class Servidor {
     */
     std::vector<int> getParticipantes(void);
 
+    /**
+    * @brief Retorna a lista com os ponteiros dos Canais do servidor.
+    * 
+    * Esta função retorna a lista com os ponteiros dos Canais do servidor.
+    *
+    * @return A lista de ponteiros dos Canais do servidor.
+    */
     std::vector<Canal *> getCanais(void);
 
     /**

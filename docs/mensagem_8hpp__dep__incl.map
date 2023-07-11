@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Este arquivo contém as declarações da classe Mensagem." alt="" coords="380,5,535,32"/>
 <area shape="rect" id="Node000002" href="$canal_8hpp.html" title="Este arquivo contém as declarações da classe Canal." alt="" coords="396,80,519,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="460,47,460,80,455,80,455,47"/>
-<area shape="rect" id="Node000003" href="$canaltexto_8hpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalTexto." alt="" coords="215,155,367,181"/>
+<area shape="rect" id="Node000003" href="$canaltexto_8hpp.html" title="Este arquivo contém as declarações da sub&#45;classe CanalTexto." alt="" coords="215,155,367,181"/>
 <area shape="poly" id="edge20_Node000001_Node000003" title=" " alt="" coords="432,44,386,82,306,156,302,152,382,78,429,40"/>
 <area shape="rect" id="Node000015" href="$mensagem_8cpp.html" title="Este arquivo implementa as funções da classe Mensagem." alt="" coords="543,80,676,107"/>
 <area shape="poly" id="edge21_Node000001_Node000015" title=" " alt="" coords="498,36,584,77,582,82,496,41"/>
@@ -11,7 +11,7 @@
 <area shape="poly" id="edge17_Node000002_Node000004" title=" " alt="" coords="447,121,432,156,405,230,400,228,427,154,443,119"/>
 <area shape="rect" id="Node000006" href="$sistema_8hpp.html" title="Este arquivo contém as declarações da classe Sistema." alt="" coords="342,379,480,405"/>
 <area shape="poly" id="edge18_Node000002_Node000006" title=" " alt="" coords="534,105,648,129,694,141,719,153,740,177,752,202,752,229,740,257,716,288,686,313,653,334,618,351,546,375,480,387,479,382,545,370,616,346,651,330,683,309,712,284,735,255,747,228,747,203,736,180,716,157,692,146,647,134,533,111"/>
-<area shape="rect" id="Node000012" href="$canalvoz_8hpp.html" title="Este arquivo contém as declarações da Sub&#45;Classe CanalVoz." alt="" coords="442,155,583,181"/>
+<area shape="rect" id="Node000012" href="$canalvoz_8hpp.html" title="Este arquivo contém as declarações da sub&#45;classe CanalVoz." alt="" coords="442,155,583,181"/>
 <area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="478,117,505,153,501,156,474,120"/>
 <area shape="rect" id="Node000014" href="$canal_8cpp.html" title="Este arquivo implementa as funções da classe Canal." alt="" coords="607,155,706,181"/>
 <area shape="poly" id="edge19_Node000002_Node000014" title=" " alt="" coords="507,110,622,152,620,157,505,115"/>

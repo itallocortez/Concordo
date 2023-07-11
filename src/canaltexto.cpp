@@ -12,19 +12,23 @@ CanalTexto::CanalTexto(std::string nome) : Canal(nome)
 {
 }
 
-string CanalTexto::getTipo(void) {
+string CanalTexto::getTipo(void) 
+{
   return "TEXTO";
 }
 
-std::vector<Mensagem> CanalTexto::getMensagens(void) {
+std::vector<Mensagem> CanalTexto::getMensagens(void) 
+{
   return this->mensagens;
 }
 
-void CanalTexto::enviarMensagem(Mensagem mensagem) {
+void CanalTexto::enviarMensagem(Mensagem mensagem) 
+{
   mensagens.push_back(mensagem);
 }
 
-void CanalTexto::listarMensagens(std::vector<Usuario *> *usuarios) {
+void CanalTexto::listarMensagens(std::vector<Usuario *> *usuarios) 
+{
   // Para mensagem armazenada no canal
   for (Mensagem m : mensagens) {
     // Imprime cada mensagem

@@ -39,10 +39,37 @@ class Sistema {
     bool estaLogado = false; /**< Se existe um usuário logado no sistema. */
     bool precisaFechar = false; /**< Se o programa deve ser fechado. */
 
+    /**
+     * @brief Carrega os usuários salvos no disco.
+     * 
+     * Esta função recupera os dados salvos no arquivo "usuarios.txt" e os restaura no sistema,
+     * atualizando o estado interno com as informações dos usuários previamente armazenadas.
+     */
     void carregarUsuarios(void);
+
+    /**
+     * @brief Carrega os servidores salvos no disco.
+     * 
+     * Esta função recupera os dados salvos no arquivo "servidores.txt" e os restaura no sistema,
+     * atualizando o estado interno com as informações dos servidores previamente armazenadas.
+     */
     void carregarServidores(void);
 
+
+    /**
+     * @brief Salva os usuários atuais no disco.
+     * 
+     * Esta função salva os usuários atuais no disco, armazenando as informações dos usuários 
+     * em um arquivo específico, possibilitando a recuperação dessas informações posteriormente.
+     */
     void salvarUsuarios(void);
+
+    /**
+     * @brief Salva os servidores atuais no disco.
+     * 
+     * Esta função salva os servidores atuais no disco, armazenando as informações dos servidores 
+     * em um arquivo específico, possibilitando a recuperação dessas informações posteriormente.
+     */
     void salvarServidores(void);
   public:
     /**
@@ -52,6 +79,11 @@ class Sistema {
      */
     Sistema();
 
+    /**
+     * @brief Destrutor padrão da classe Sistema.
+     * 
+     * Libera toda a memória alocada dinamicamente pelo programa.
+     */
     ~Sistema();
 
 
@@ -60,9 +92,9 @@ class Sistema {
      * 
      * Esta função retorna a data atual no formato de uma string.
      *
-     * @return A data atual no formato "AAAA-MM-DD".
+     * @return A data atual no formato "DD/MM/AAAA - HH:MM:SS".
      */
-    std::string getDataAtual(void);
+    std::string getDataHoraAtual(void);
 
     /**
     * @brief Retorna um ponteiro para o objeto Usuario correspondente ao ID fornecido.
@@ -133,7 +165,20 @@ class Sistema {
     */
     void executarComando(void);
 
+    /**
+     * @brief Carrega os usuários e servidores salvos no disco.
+     * 
+     * Esta função recupera os dados salvos nos arquivos de usuários e servidores e os restaura no sistema,
+     * atualizando o estado interno com as informações dos usuários e servidores previamente armazenadas.
+     */
     void carregar();
+
+    /**
+     * @brief Salva os usuários e servidores atuais no disco.
+     * 
+     * Esta função salva os usuários e servidores atuais no disco, armazenando as informações em um arquivo 
+     * específico, possibilitando a recuperação dessas informações posteriormente.
+     */
     void salvar();
 };
 

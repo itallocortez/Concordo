@@ -10,11 +10,11 @@
 /**
  * @file canaltexto.hpp
  *
- * @brief Este arquivo contém as declarações da Sub-Classe CanalTexto.
+ * @brief Este arquivo contém as declarações da sub-classe CanalTexto.
  */
 
 /**
- * @brief Sub Classe de Canal para canal de texto.
+ * @brief Sub Classe de Canal para canais de texto.
  * 
  * A classe CanalTexto armazena as mensagens enviadas ao canal de texto.
  */
@@ -31,25 +31,32 @@ class CanalTexto : public Canal {
     CanalTexto(std::string nome);
 
     /**
-     * @brief Retorna o tipo do canal de texto.
+     * @brief Retorna o tipo do canal.
      *
-     * @return Retorna o tipo do canal de texto: "TEXTO".
+     * @return "TEXTO".
      */
     std::string getTipo() override;
 
+    /**
+     * @brief Retorna as mensagens contidas no canal de texto.
+     *
+     * @return Um objeto <vector> do tipo Mensagem, com as mensagens dentro.
+     */
     std::vector<Mensagem> getMensagens() override;
 
     /**
      * @brief Envia uma mensagem para o canal de texto.
      *
-     * @param mensagem A mensagem a ser enviada.
+     * @param mensagem O objeto do tipo Mensagem a ser enviado ao canal.
      */
     void enviarMensagem(Mensagem mensagem) override;
 
     /**
      * @brief Lista as mensagens do canal de texto.
      *
-     * @param usuarios Um ponteiro para um vetor de ponteiros de usuários.
+     * Precisa do ponteiro dos usuários para obter o nome deles.
+     *
+     * @param usuarios Um ponteiro para um vetor de ponteiros de usuários do servidor.
      */
     void listarMensagens(std::vector<Usuario *> *usuarios) override;
 };

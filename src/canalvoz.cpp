@@ -12,11 +12,13 @@ CanalVoz::CanalVoz(std::string nome) : Canal(nome)
   
 }
 
-std::string CanalVoz::getTipo(void) {
+std::string CanalVoz::getTipo(void) 
+{
   return "VOZ";
 }
 
-std::vector<Mensagem> CanalVoz::getMensagens(void) {
+std::vector<Mensagem> CanalVoz::getMensagens(void) 
+{
   std::vector<Mensagem> mensagens;
 
   if(ultimaMensagem.getConteudo() != "") {
@@ -26,11 +28,13 @@ std::vector<Mensagem> CanalVoz::getMensagens(void) {
   return mensagens;
 }
 
-void CanalVoz::enviarMensagem(Mensagem mensagem) {
+void CanalVoz::enviarMensagem(Mensagem mensagem) 
+{
   this->ultimaMensagem = mensagem;
 }
 
-void CanalVoz::listarMensagens(std::vector<Usuario *> *usuarios) {
+void CanalVoz::listarMensagens(std::vector<Usuario *> *usuarios) 
+{
   Mensagem m = ultimaMensagem;
   
   if(m.getConteudo() != "") {

@@ -28,7 +28,7 @@ Sistema::~Sistema()
   servidores.clear();
 }
 
-std::string Sistema::getDataAtual(void) {
+std::string Sistema::getDataHoraAtual(void) {
   auto currentTime = std::chrono::system_clock::now();
   std::time_t time = std::chrono::system_clock::to_time_t(currentTime);
   
@@ -770,7 +770,7 @@ void Sistema::executarComando(void)
               }
 
               // Cria um objeto do tipo Mensagem com os dados do usuário atual
-              Mensagem m = Mensagem(usuarioAtualId, getDataAtual(), mensagem);
+              Mensagem m = Mensagem(usuarioAtualId, getDataHoraAtual(), mensagem);
 
               // Envia a mensagem para o canalAtual
               canalAtual->enviarMensagem(m);
@@ -816,12 +816,12 @@ void Sistema::executarComando(void)
 void Sistema::salvarUsuarios(void) 
 {
   // Cria um objeto do tipo OFSTREAM, pois posso sobrescrever o arquivo.
-  ofstream arquivo("../usuarios.txt");
+  ofstream arquivo("usuarios.txt");
 
   // Se o arquivo usuarios.txt não existir
   if (!arquivo.is_open()) {
     // Cria um arquivo no caminho padrão
-    arquivo.open("../usuarios.txt", ios::app);
+    arquivo.open("usuarios.txt", ios::app);
 
     // Se não der certo mesmo assim
     if (!arquivo.is_open()) {
@@ -847,12 +847,12 @@ void Sistema::salvarUsuarios(void)
 void Sistema::salvarServidores(void) 
 {
   // Cria um objeto do tipo OFSTREAM, pois posso sobrescrever o arquivo.
-  ofstream arquivo("../servidores.txt");
+  ofstream arquivo("servidores.txt");
 
   // Se o arquivo servidores.txt não existir
   if (!arquivo.is_open()) {
     // Cria um arquivo no caminho padrão
-    arquivo.open("../servidores.txt", ios::app);
+    arquivo.open("servidores.txt", ios::app);
 
     // Se não der certo mesmo assim
     if (!arquivo.is_open()) {
@@ -917,7 +917,7 @@ void Sistema::carregarUsuarios(void)
   usuarios.clear();
 
   // Cria um objeto do tipo IFSTREAM, pois vou ler o arquivo.
-  ifstream arquivo("../usuarios.txt");
+  ifstream arquivo("usuarios.txt");
  
   string linha; // Linha atual que está sendo lida.
   int numeroUsuarios = 0; // Número de usuários no arquivo
@@ -992,7 +992,7 @@ void Sistema::carregarServidores(void)
   servidores.clear();
   
   // Cria um objeto do tipo IFSTREAM, pois vou ler o arquivo.
-  ifstream arquivo("../servidores.txt");
+  ifstream arquivo("servidores.txt");
 
   string linha; // Linha atual que está sendo lida.
   int numeroServidores = 0; // Número de servidores no arquivo

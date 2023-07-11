@@ -16,7 +16,8 @@ Servidor::Servidor(int usuarioDonoId, string nome)
   this->codigoConvite = "";
 }
 
-Servidor::~Servidor(){
+Servidor::~Servidor()
+{
   // Desaloca qualquer memória dinâmica dos <vector's>
   for (Canal *canal : canais) {
     delete canal;
@@ -90,11 +91,13 @@ void Servidor::addParticipante(int id)
   }
 }
 
-void Servidor::addCanal(Canal *c) {
+void Servidor::addCanal(Canal *c)
+{
   canais.push_back(c);
 }
 
-Canal* Servidor::canalPeloNome(string nome) {
+Canal* Servidor::canalPeloNome(string nome)
+{
   // Verifica cada canal no <vector> de canais
   for (Canal *c : canais) {
     // Se encontrar um com ID informado
@@ -106,7 +109,8 @@ Canal* Servidor::canalPeloNome(string nome) {
   return nullptr;
 }
 
-void Servidor::listarCanais(){
+void Servidor::listarCanais()
+{
   std::cout << "#canais de texto" << std::endl;
 
   // Para cada canal no <vector> de canais
